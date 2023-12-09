@@ -179,7 +179,7 @@ function SidebarMenu() {
           <SubMenuWrapper>
             <List component="div">
               <ListItem component="div">
-                <NextLink href="/" passHref>
+                <NextLink href="https://getvision.in/" passHref>
                   <Button
                     className={currentRoute === '="/' ? 'active' : ''}
                     disableRipple

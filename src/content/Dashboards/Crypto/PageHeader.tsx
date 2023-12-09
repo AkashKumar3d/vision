@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material/styles';
 function PageHeader() {
   const user = {
     name: 'Abhishek Jha',
-    avatar: '/static/images/avatars/1.jpg'
+    avatar: '/static/images/avatars/3.jpg'
   };
   const theme = useTheme();
 
@@ -27,7 +27,7 @@ function PageHeader() {
           Welcome, {user.name}!
         </Typography>
         <Typography variant="subtitle2">
-          Today is a good day to start trading crypto assets!
+          “Your Success is our Vision.”
         </Typography>
       </Grid>
     </Grid>
