@@ -215,30 +215,30 @@ function SidebarMenu() {
                     onClick={closeSidebar}
                     startIcon={<BrightnessLowTwoToneIcon />}
                   >
-                    Create Deal
+                    Analytics
                   </Button>
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/applications/messenger" passHref>
+                <NextLink href="/dashboards/createdeal" passHref>
                   <Button
                     className={
-                      currentRoute === '/applications/messenger' ? 'active' : ''
+                      currentRoute === '/dashboards/createdeal' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
                     onClick={closeSidebar}
                     startIcon={<AnalyticsIcon />}
                   >
-                    Analytics
+                    Create Deal
                   </Button>
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/applications/messenger" passHref>
+                <NextLink href="/dashboards/alldeal" passHref>
                   <Button
                     className={
-                      currentRoute === '/applications/messenger' ? 'active' : ''
+                      currentRoute === '/dashboards/alldeal' ? 'active' : ''
                     }
                     disableRipple
                     component="a"
@@ -297,10 +297,10 @@ function SidebarMenu() {
                 </NextLink>
               </ListItem>
               <ListItem component="div">
-                <NextLink href="/management/transactions" passHref>
+                <NextLink href="/applications/messenger" passHref>
                   <Button
                     className={
-                      currentRoute === '/management/transactions'
+                      currentRoute === '/management/messenger'
                         ? 'active'
                         : ''
                     }
