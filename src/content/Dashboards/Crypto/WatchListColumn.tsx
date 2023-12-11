@@ -12,6 +12,7 @@ import Label from 'src/components/Label';
 import Text from 'src/components/Text';
 import { Chart } from 'src/components/Chart';
 import type { ApexOptions } from 'apexcharts';
+import { FcDebt } from 'react-icons/fc';
 
 const AvatarWrapper = styled(Avatar)(
   ({ theme }) => `
@@ -24,10 +25,9 @@ const AvatarWrapper = styled(Avatar)(
     border-radius: 60px;
     height: ${theme.spacing(5.5)};
     width: ${theme.spacing(5.5)};
-    background: ${
-      theme.palette.mode === 'dark'
-        ? theme.colors.alpha.trueWhite[30]
-        : alpha(theme.colors.alpha.black[100], 0.07)
+    background: ${theme.palette.mode === 'dark'
+      ? theme.colors.alpha.trueWhite[30]
+      : alpha(theme.colors.alpha.black[100], 0.07)
     };
   
     img {
@@ -163,17 +163,19 @@ function WatchListColumn() {
           >
             <Box display="flex" alignItems="center">
               <AvatarWrapper>
-                <img
+                {/* <img
                   alt="BTC"
                   src="/static/images/placeholders/logo/bitcoin.png"
-                />
+                /> */}
+                <FcDebt style={{ width: '2rem', height: '2rem' }} />
+
               </AvatarWrapper>
               <Box>
                 <Typography variant="h4" noWrap>
-                  Bitcoin
+                  Total Deal Vol
                 </Typography>
                 <Typography variant="subtitle1" noWrap>
-                  BTC
+                  Total Deal
                 </Typography>
               </Box>
             </Box>
@@ -192,10 +194,10 @@ function WatchListColumn() {
                   mb: 1
                 }}
               >
-                $56,475.99
+                102.20 crs
               </Typography>
               <Text color="success">
-                <b>+12.5%</b>
+                {/* <b>+12.5%</b> */}
               </Text>
             </Box>
             <Box
@@ -205,7 +207,7 @@ function WatchListColumn() {
                 justifyContent: 'flex-start'
               }}
             >
-              <Label color="success">+$500</Label>
+              {/* <Label color="success">+$500</Label> */}
               <Typography
                 variant="body2"
                 color="text.secondary"
@@ -238,17 +240,18 @@ function WatchListColumn() {
           >
             <Box display="flex" alignItems="center">
               <AvatarWrapper>
-                <img
+                {/* <img
                   alt="ETH"
                   src="/static/images/placeholders/logo/ethereum.png"
-                />
+                /> */}
+                <FcDebt style={{ width: '2rem', height: '2rem' }} />
               </AvatarWrapper>
               <Box>
                 <Typography variant="h4" noWrap>
-                  Ethereum
+                  Ongoing Deal Vol
                 </Typography>
                 <Typography variant="subtitle1" noWrap>
-                  ETH
+                  Ongoing Deal
                 </Typography>
               </Box>
             </Box>
@@ -267,10 +270,10 @@ function WatchListColumn() {
                   mb: 1
                 }}
               >
-                $1,968.00
+                87.22 crs
               </Typography>
               <Text color="error">
-                <b>-3.24%</b>
+                {/* <b>-3.24%</b> */}
               </Text>
             </Box>
             <Box
@@ -280,7 +283,7 @@ function WatchListColumn() {
                 justifyContent: 'flex-start'
               }}
             >
-              <Label color="error">-$90</Label>
+              {/* <Label color="error">-$90</Label> */}
               <Typography
                 variant="body2"
                 color="text.secondary"
@@ -313,17 +316,18 @@ function WatchListColumn() {
           >
             <Box display="flex" alignItems="center">
               <AvatarWrapper>
-                <img
+                {/* <img
                   alt="ADA"
                   src="/static/images/placeholders/logo/cardano.png"
-                />
+                /> */}
+                <FcDebt style={{ width: '2rem', height: '2rem' }} />
               </AvatarWrapper>
               <Box>
                 <Typography variant="h4" noWrap>
-                  Cardano
+                  Total Lender Assoc
                 </Typography>
                 <Typography variant="subtitle1" noWrap>
-                  ADA
+                  Total Lender
                 </Typography>
               </Box>
             </Box>
@@ -342,10 +346,10 @@ function WatchListColumn() {
                   mb: 1
                 }}
               >
-                $23.00
+                35
               </Typography>
               <Text color="error">
-                <b>-0.33%</b>
+                {/* <b>-0.33%</b> */}
               </Text>
             </Box>
             <Box
@@ -355,7 +359,7 @@ function WatchListColumn() {
                 justifyContent: 'flex-start'
               }}
             >
-              <Label color="error">-$5</Label>
+              {/* <Label color="error">-$5</Label> */}
               <Typography
                 variant="body2"
                 color="text.secondary"

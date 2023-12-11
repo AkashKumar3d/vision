@@ -30,7 +30,7 @@ function DashboardCrypto() {
           spacing={4}
         >
           <Grid item xs={12}>
-            <AccountBalance />
+            <WatchList />
           </Grid>
           <Grid item lg={8} xs={12}>
             <Wallets />
@@ -38,8 +38,9 @@ function DashboardCrypto() {
           <Grid item lg={4} xs={12}>
             <AccountSecurity />
           </Grid>
+
           <Grid item xs={12}>
-            <WatchList />
+            <AccountBalance />
           </Grid>
         </Grid>
       </Container>

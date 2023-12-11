@@ -18,6 +18,7 @@ import type { ApexOptions } from 'apexcharts';
 import TrendingDownTwoToneIcon from '@mui/icons-material/TrendingDownTwoTone';
 import TrendingUpTwoToneIcon from '@mui/icons-material/TrendingUpTwoTone';
 import TrendingFlatTwoToneIcon from '@mui/icons-material/TrendingFlatTwoTone';
+import { FcDebt } from 'react-icons/fc';
 
 const AvatarWrapper = styled(Avatar)(
   ({ theme }) => `
@@ -30,10 +31,9 @@ const AvatarWrapper = styled(Avatar)(
     border-radius: 60px;
     height: ${theme.spacing(5.5)};
     width: ${theme.spacing(5.5)};
-    background: ${
-      theme.palette.mode === 'dark'
-        ? theme.colors.alpha.trueWhite[30]
-        : alpha(theme.colors.alpha.black[100], 0.07)
+    background: ${theme.palette.mode === 'dark'
+      ? theme.colors.alpha.trueWhite[30]
+      : alpha(theme.colors.alpha.black[100], 0.07)
     };
   
     img {
@@ -158,17 +158,18 @@ function WatchListRow() {
           >
             <Box display="flex" alignItems="center">
               <AvatarWrapper>
-                <img
+                {/* <img
                   alt="BTC"
                   src="/static/images/placeholders/logo/bitcoin.png"
-                />
+                /> */}
+                <FcDebt style={{ width: '2rem', height: '2rem' }} />
               </AvatarWrapper>
               <Box>
                 <Typography variant="h4" noWrap>
-                  Bitcoin
+                  Total Deal Vol
                 </Typography>
                 <Typography variant="subtitle1" noWrap>
-                  BTC
+                  Total Deal
                 </Typography>
               </Box>
             </Box>
@@ -193,10 +194,11 @@ function WatchListRow() {
                   pr: 1
                 }}
               >
-                $56,475.99
+                102.20 crs
               </Typography>
               <Text color="success">
-                <b>+12.5%</b>
+                {/* <b>+12.5%</b> */}
+                {/* <b>12</b> */}
               </Text>
             </Box>
             <TrendingUpTwoToneIcon
@@ -227,17 +229,18 @@ function WatchListRow() {
           >
             <Box display="flex" alignItems="center">
               <AvatarWrapper>
-                <img
+                {/* <img
                   alt="ETH"
                   src="/static/images/placeholders/logo/ethereum.png"
-                />
+                /> */}
+                <FcDebt style={{ width: '2rem', height: '2rem' }} />
               </AvatarWrapper>
               <Box>
                 <Typography variant="h4" noWrap>
-                  Ethereum
+                  Ongoing Deal Vol
                 </Typography>
                 <Typography variant="subtitle1" noWrap>
-                  ETH
+                  Ongoing Deal
                 </Typography>
               </Box>
             </Box>
@@ -262,15 +265,15 @@ function WatchListRow() {
                   pr: 1
                 }}
               >
-                $1,968.00
+                87.22 crs
               </Typography>
               <Text color="error">
-                <b>-3.24%</b>
+                {/* <b>-3.24%</b> */}
               </Text>
             </Box>
-            <TrendingDownTwoToneIcon
+            <TrendingUpTwoToneIcon
               sx={{
-                color: `${theme.colors.error.main}`
+                color: `${theme.colors.success.main}`
               }}
             />
           </Box>
@@ -296,17 +299,18 @@ function WatchListRow() {
           >
             <Box display="flex" alignItems="center">
               <AvatarWrapper>
-                <img
+                {/* <img
                   alt="ADA"
                   src="/static/images/placeholders/logo/cardano.png"
-                />
+                /> */}
+                <FcDebt style={{ width: '2rem', height: '2rem' }} />
               </AvatarWrapper>
               <Box>
                 <Typography variant="h4" noWrap>
-                  Cardano
+                  Total Lender Assoc
                 </Typography>
                 <Typography variant="subtitle1" noWrap>
-                  ADA
+                  Total Lender
                 </Typography>
               </Box>
             </Box>
@@ -331,15 +335,15 @@ function WatchListRow() {
                   pr: 1
                 }}
               >
-                $23.00
+                35
               </Typography>
               <Text color="error">
-                <b>-0.33%</b>
+                {/* <b>-0.33%</b> */}
               </Text>
             </Box>
-            <TrendingFlatTwoToneIcon
+            <TrendingUpTwoToneIcon
               sx={{
-                color: `${theme.colors.warning.main}`
+                color: `${theme.colors.success.main}`
               }}
             />
           </Box>

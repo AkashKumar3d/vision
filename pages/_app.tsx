@@ -34,7 +34,7 @@ function TokyoApp(props: TokyoAppProps) {
   Router.events.on('routeChangeComplete', nProgress.done);
 
   return (
-    <CacheProvider value={emotionCache}>
+    <>
       <Head>
         <title>Vision</title>
         <meta
@@ -42,15 +42,17 @@ function TokyoApp(props: TokyoAppProps) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
       </Head>
-      <SidebarProvider>
-        <ThemeProvider>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
-            <CssBaseline />
-            {getLayout(<Component {...pageProps} />)}
-          </LocalizationProvider>
-        </ThemeProvider>
-      </SidebarProvider>
-    </CacheProvider>
+      <CacheProvider value={emotionCache}>
+        <SidebarProvider>
+          <ThemeProvider>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <CssBaseline />
+              {getLayout(<Component {...pageProps} />)}
+            </LocalizationProvider>
+          </ThemeProvider>
+        </SidebarProvider>
+      </CacheProvider>
+    </>
   );
 }
 

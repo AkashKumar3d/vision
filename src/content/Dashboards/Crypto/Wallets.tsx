@@ -12,6 +12,7 @@ import {
   styled
 } from '@mui/material';
 import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
+import { FcDebt } from "react-icons/fc";
 
 const AvatarWrapper = styled(Avatar)(
   ({ theme }) => `
@@ -24,10 +25,9 @@ const AvatarWrapper = styled(Avatar)(
     border-radius: 60px;
     height: ${theme.spacing(5.5)};
     width: ${theme.spacing(5.5)};
-    background: ${
-      theme.palette.mode === 'dark'
-        ? theme.colors.alpha.trueWhite[30]
-        : alpha(theme.colors.alpha.black[100], 0.07)
+    background: ${theme.palette.mode === 'dark'
+      ? theme.colors.alpha.trueWhite[30]
+      : alpha(theme.colors.alpha.black[100], 0.07)
     };
   
     img {
@@ -85,13 +85,13 @@ function Wallets() {
           pb: 3
         }}
       >
-        <Typography variant="h3">Wallets</Typography>
+        <Typography variant="h3">Live Deals</Typography>
         <Button
           size="small"
           variant="outlined"
           startIcon={<AddTwoToneIcon fontSize="small" />}
         >
-          Add new wallet
+          Add new deal
         </Button>
       </Box>
       <Grid container spacing={3}>
@@ -103,16 +103,17 @@ function Wallets() {
           >
             <CardContent>
               <AvatarWrapper>
-                <img
+                {/* <img
                   alt="BTC"
                   src="/static/images/placeholders/logo/bitcoin.png"
-                />
+                /> */}
+                <FcDebt style={{ width: '2rem', height: '2rem' }} />
               </AvatarWrapper>
               <Typography variant="h5" noWrap>
-                Bitcoin
+                DA PTC
               </Typography>
               <Typography variant="subtitle1" noWrap>
-                BTC
+                2 Lender
               </Typography>
               <Box
                 sx={{
@@ -120,10 +121,10 @@ function Wallets() {
                 }}
               >
                 <Typography variant="h3" gutterBottom noWrap>
-                  $3,586.22
+                  20 CRS
                 </Typography>
                 <Typography variant="subtitle2" noWrap>
-                  1.25843 BTC
+                  Consultant: No
                 </Typography>
               </Box>
             </CardContent>
@@ -137,16 +138,17 @@ function Wallets() {
           >
             <CardContent>
               <AvatarWrapper>
-                <img
+                {/* <img
                   alt="Ripple"
                   src="/static/images/placeholders/logo/ripple.png"
-                />
+                /> */}
+                <FcDebt style={{ width: '2rem', height: '2rem' }} />
               </AvatarWrapper>
               <Typography variant="h5" noWrap>
-                Ripple
+                Term Loan
               </Typography>
               <Typography variant="subtitle1" noWrap>
-                XRP
+                1 Lender
               </Typography>
               <Box
                 sx={{
@@ -154,10 +156,10 @@ function Wallets() {
                 }}
               >
                 <Typography variant="h3" gutterBottom noWrap>
-                  $586.83
+                  10 CRS
                 </Typography>
                 <Typography variant="subtitle2" noWrap>
-                  5,783 XRP
+                  Consultant: Yes
                 </Typography>
               </Box>
             </CardContent>
@@ -171,16 +173,17 @@ function Wallets() {
           >
             <CardContent>
               <AvatarWrapper>
-                <img
+                {/* <img
                   alt="Cardano"
                   src="/static/images/placeholders/logo/cardano.png"
-                />
+                /> */}
+                <FcDebt style={{ width: '2rem', height: '2rem' }} />
               </AvatarWrapper>
               <Typography variant="h5" noWrap>
-                Cardano
+                BC Partnership
               </Typography>
               <Typography variant="subtitle1" noWrap>
-                ADA
+                3 Lender
               </Typography>
               <Box
                 sx={{
@@ -188,17 +191,17 @@ function Wallets() {
                 }}
               >
                 <Typography variant="h3" gutterBottom noWrap>
-                  $54,985.00
+                  5 CRS
                 </Typography>
                 <Typography variant="subtitle2" noWrap>
-                  34,985 ADA
+                  Consultant: Yes
                 </Typography>
               </Box>
             </CardContent>
           </Card>
         </Grid>
         <Grid xs={12} sm={6} md={3} item>
-          <Tooltip arrow title="Click to add a new wallet">
+          <Tooltip arrow title="Click to add a new deal">
             <CardAddAction>
               <CardActionArea
                 sx={{
