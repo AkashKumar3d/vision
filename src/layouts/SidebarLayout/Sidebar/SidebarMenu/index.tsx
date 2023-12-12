@@ -140,9 +140,9 @@ const SubMenuWrapper = styled(Box)(
                 background: ${theme.colors.alpha.trueWhite[100]};
                 opacity: 0;
                 transition: ${theme.transitions.create([
-                  'transform',
-                  'opacity'
-                ])};
+    'transform',
+    'opacity'
+  ])};
                 width: 6px;
                 height: 6px;
                 transform: scale(0);
@@ -262,7 +262,7 @@ function SidebarMenu() {
         >
           <SubMenuWrapper>
             <List component="div">
-              <ListItem component="div">
+              {/* <ListItem component="div">
                 <NextLink href="/management/transactions" passHref>
                   <Button
                     className={
@@ -275,10 +275,10 @@ function SidebarMenu() {
                     onClick={closeSidebar}
                     startIcon={<DataSaverOnIcon />}
                   >
-                    Demand
+                    Your Supply
                   </Button>
                 </NextLink>
-              </ListItem>
+              </ListItem> */}
               <ListItem component="div">
                 <NextLink href="/management/transactions" passHref>
                   <Button
@@ -292,7 +292,7 @@ function SidebarMenu() {
                     onClick={closeSidebar}
                     startIcon={<SchemaIcon />}
                   >
-                    Supply
+                    Latest Demands
                   </Button>
                 </NextLink>
               </ListItem>
@@ -389,7 +389,7 @@ function SidebarMenu() {
             </List>
           </SubMenuWrapper>
         </List>
-        <List
+        {/* <List
           component="div"
           subheader={
             <ListSubheader component="div" disableSticky>
@@ -416,7 +416,7 @@ function SidebarMenu() {
               </ListItem>
             </List>
           </SubMenuWrapper>
-        </List>
+        </List> */}
       </MenuWrapper>
     </>
   );

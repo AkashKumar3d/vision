@@ -10,12 +10,13 @@ const themeColors = {
   warning: '#FFA319',
   error: '#FF1943',
   info: '#33C2FF',
-  black: '#347362',
+  black: '#093e30',
   white: '#ffffff',
-  base: '#347362',
+  base: '#093e30',
   primaryAlt: '#000C57'
 };
-
+// #093e30
+// #347362
 const colors = {
   gradients: {
     blue1: 'linear-gradient(135deg, #6B73FF 0%, #000DFF 100%)',
@@ -232,6 +233,7 @@ export const PureLightTheme = createTheme({
   },
   sidebar: {
     background: colors.layout.sidebar.background,
+    // background: 'white',
     textColor: colors.layout.sidebar.textColor,
     dividerBg: colors.layout.sidebar.dividerBg,
     menuItemColor: colors.layout.sidebar.menuItemColor,
@@ -927,9 +929,9 @@ export const PureLightTheme = createTheme({
         },
         root: {
           '.MuiAutocomplete-inputRoot.MuiOutlinedInput-root .MuiAutocomplete-endAdornment':
-            {
-              right: 14
-            }
+          {
+            right: 14
+          }
         },
         clearIndicator: {
           background: colors.error.lighter,
