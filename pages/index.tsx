@@ -14,6 +14,7 @@ import Head from 'next/head';
 
 import Logo from 'src/components/LogoSign';
 import Hero from 'src/content/Overview/Hero';
+import LoginCard from '@/content/LoginPage/LoginCard';
 
 const HeaderWrapper = styled(Card)(
   ({ theme }) => `
@@ -65,19 +66,8 @@ function Overview() {
           </Box>
         </Container>
       </HeaderWrapper>
-      <Hero />
-      <Container maxWidth="lg" sx={{ mt: 8 }}>
-        <Typography textAlign="center" variant="subtitle1">
-          Crafted by{' '}
-          <Link
-            href="https://bloomui.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            BloomUI.com
-          </Link>
-        </Typography>
-      </Container>
+      {/* <Hero /> */}
+      <LoginCard/>
     </OverviewWrapper>
   );
 }
