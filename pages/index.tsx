@@ -55,7 +55,7 @@ function Overview() {
               <Box>
                 <Button
                   component={Link}
-                  href="/dashboards/crypto"
+                  href="/api/auth/login/route?returnTo=/dashboard"
                   variant="contained"
                   sx={{ ml: 2 }}
                 >
