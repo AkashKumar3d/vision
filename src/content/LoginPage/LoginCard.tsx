@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import Image from "next/image"; // Import the Image component
 import Logo from "../../../public/static/images/logo/VisionLogo.svg";
 import BG from "../../../public/static/images/background/background.jpeg";
+import TabsDemo from "pages/components/tabs";
 
 // Define the LoginCard component
 export default function LoginCard() {
@@ -167,6 +168,7 @@ export default function LoginCard() {
             >
               {/* Use the Image component for the logo */}
               <Image src={Logo} alt="Logo" width={150} height={150} />
+              
               <Box component="form" noValidate sx={{ mt: 1 }}>
                 {/* Render the appropriate fields based on the state */}
                 {showOtpField ? (
@@ -211,6 +213,9 @@ export default function LoginCard() {
             </Box>
           </Grid>
         </Grid>
+        
+        
+      
       </Box>
     </Container>
   );
