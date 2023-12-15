@@ -1,72 +1,25 @@
 // Import the necessary components and hooks
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
-import { useState } from "react";
-import { useRouter } from "next/router";
 import Image from "next/image"; // Import the Image component
 import Logo from "../../../public/static/images/logo/VisionLogo.svg";
-import BG from "../../../public/static/images/background/background.jpeg";
-import TabsDemo from "pages/components/tabs";
+import LoginTab from "./LoginTab";
+import Link1 from 'src/components/Link';
+import BGNew from '../../../public/static/images/background/bgloginNEW.svg'
 
-// Define the LoginCard component
 export default function LoginCard() {
-  const router = useRouter();
-  const [email, setEmail] = useState('');
-  const [otp, setOtp] = useState('');
-  const [showOtpField, setShowOtpField] = useState(false);
-
-  const handleAction = () => {
-    // Check if OTP field is visible
-    if (showOtpField) {
-      // Perform OTP verification logic here
-      // For simplicity, check if OTP is non-empty
-      if (otp.trim() !== '') {
-        // Redirect to the dashboard page
-        router.push('/dashboard/crypto');
-      } else {
-        // Handle validation error
-        alert('Please enter a valid OTP');
-      }
-    } else {
-      // Perform email verification logic here
-      // For simplicity, check if email is non-empty
-      if (email.trim() !== '') {
-        // Simulate sending an email and show the OTP field
-        sendEmail(email);
-        setShowOtpField(true);
-      } else {
-        // Handle validation error
-        alert('Please enter your email');
-      }
-    }
-  };
-
-  // Function to simulate sending an email (replace with your email logic)
-  const sendEmail = (email) => {
-    // Simulate sending an email with the OTP
-    const otp = generateOtp();
-    alert(`Email sent to ${email} with OTP: ${otp}`);
-  };
-
-  // Function to generate a random OTP (replace with your OTP logic)
-  const generateOtp = () => {
-    // This is a simple example, generate a random 6-digit OTP
-    return Math.floor(100000 + Math.random() * 900000).toString();
-  };
 
   return (
-    <Container component="main" maxWidth="lg" sx={{ height: "70%" }}>
+    <Container component="main" maxWidth="lg" >
       <Box
         sx={{
           bgcolor: "red",
-          height: "100%",
+          height: "90%",
         }}
       >
         <Grid container bgcolor={"red"} sx={{ height: "100%" }}>
@@ -74,10 +27,10 @@ export default function LoginCard() {
           <Grid
             item
             xs={false}
-            sm={4}
-            md={7}
+            sm={12}
+            md={6}
             sx={{
-              backgroundImage: "url(https://source.unsplash.com/random)",
+              backgroundImage: '../../../public/static/images/background/bgloginNEW.svg',
               backgroundRepeat: "no-repeat",
               backgroundColor: (t) =>
                 t.palette.mode === "light"
@@ -85,13 +38,15 @@ export default function LoginCard() {
                   : t.palette.grey[900],
               backgroundSize: "cover",
               backgroundPosition: "center",
+              objectFit:"contain",
+              
               position: "relative",
             }}
           >
+            <img src={BGNew} style={{ position:"absolute", width:"100%",height:"100%", justifySelf:"center"}} />
             <Box
-              bgcolor={"#00000080"}
+              bgcolor={"#00000099"}
               position={"absolute"}
-              top={"0"}
               color={"white"}
               width={"100%"}
               height={"200px"}
@@ -99,13 +54,14 @@ export default function LoginCard() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+
               }}
             >
               <Typography
                 component={"div"}
                 style={{
                   width: "80%",
-                  backgroundColor: "#ffffff90",
+                  backgroundColor: "#ffffff99",
                   textAlign: "center",
                   border: "1px",
                   borderRadius: "10px",
@@ -124,7 +80,7 @@ export default function LoginCard() {
               bottom={"0"}
               color={"white"}
               width={"100%"}
-              height={"100px"}
+              height={"250px"}
               sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -134,16 +90,17 @@ export default function LoginCard() {
               <Typography
                 component={"div"}
                 style={{
-                  width: "90%",
-                  backgroundColor: "#00000020",
+                  width: "95%",
+                  backgroundColor: "#00000090",
+                 
                   textAlign: "center",
                   border: "1px",
                   borderRadius: "10px",
                 }}
               >
-                <p style={{ color: 'HighlightText' }}>
-                  geared to streamline and revolutionize the way financial
-                  services are delivered and consumed in the digital era.
+                <p style={{ color: 'HighlightText', lineHeight:"3", wordSpacing:"2px" }}>
+                Our Platform is designed to serve
+Various service providers such as NBFCs, Banks, Business Correspondences, Fintechs, Insurance Service Providers, Rating Agencies, Collection Agencies, KYC Providers, Credit-Bureau Agencies, AA Platform, LOS/LMS Providers, Marketing Agencies, VC & PE Firms, and Investment Bankers etc.
                 </p>
               </Typography>
             </Box>
@@ -151,8 +108,8 @@ export default function LoginCard() {
           <Grid
             item
             xs={12}
-            sm={8}
-            md={5}
+            sm={12}
+            md={6}
             component={Paper}
             elevation={6}
             square
@@ -161,55 +118,30 @@ export default function LoginCard() {
               sx={{
                 display: "flex",
                 flexDirection: "column",
+                justifyContent:"space-between",
+                gap:4,
                 alignItems: "center",
                 width: "100%",
-                height: "100%",
               }}
             >
               {/* Use the Image component for the logo */}
-              <Image src={Logo} alt="Logo" width={150} height={150} />
-              
-              <Box component="form" noValidate sx={{ mt: 1 }}>
-                {/* Render the appropriate fields based on the state */}
-                {showOtpField ? (
-                  <TextField
-                    label="Enter OTP"
-                    fullWidth
-                    margin="normal"
-                    value={otp}
-                    onChange={(e) => setOtp(e.target.value)}
-                  />
-                ) : (
-                  <TextField
-                    label="Enter Email"
-                    fullWidth
-                    margin="normal"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                )}
+              {/* <Image src={Logo} alt="Logo" width={150} height={150} /> */}
+              <Typography variant="h2" mt={7}>
+                Login
+              </Typography>
+                <Typography variant="h5" px={5} color={"black"} textAlign={"center" } letterSpacing={1} lineHeight={2} >Unlocking Possibilities, One Secure Login at a Time: Where Innovation Meets Authentication</Typography>
+              <LoginTab/>
+              <Grid container justifyContent={"center"} py={3}>
                 <Button
-                  variant="contained"
+                  component={Link1}
+                  href="/api/auth/login/route?returnTo=/dashboard"
                   color="primary"
-                  fullWidth
-                  style={{ marginTop: '16px' }}
-                  onClick={handleAction}
+                  variant="text"
+                  sx={{'&:hover':{color:"#347362"} }}
                 >
-                  {showOtpField ? "Verify OTP" : "Send OTP"}
+                  {"Don't have an account? Sign Up"}
                 </Button>
-                <Grid container>
-                  <Grid item xs>
-                    <Link href="#" variant="body2">
-                      Forgot password?
-                    </Link>
-                  </Grid>
-                  <Grid item>
-                    <Link href="#" variant="body2">
-                      {"Don't have an account? Sign Up"}
-                    </Link>
-                  </Grid>
                 </Grid>
-              </Box>
             </Box>
           </Grid>
         </Grid>
