@@ -22,6 +22,7 @@ import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
 import AccountBoxTwoToneIcon from '@mui/icons-material/AccountBoxTwoTone';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
+import Link from '@/components/Link';
 
 const UserBoxButton = styled(Button)(
   ({ theme }) => `
@@ -137,7 +138,7 @@ function HeaderUserbox() {
         </List>
         <Divider />
         <Box sx={{ m: 1 }}>
-          <Button color="primary" fullWidth>
+          <Button color="primary" fullWidth component={Link} href="/api/auth/logout">
             <LockOpenTwoToneIcon sx={{ mr: 1 }} />
             Sign out
           </Button>

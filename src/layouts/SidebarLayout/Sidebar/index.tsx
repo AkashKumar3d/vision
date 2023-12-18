@@ -16,6 +16,7 @@ import {
 
 import SidebarMenu from './SidebarMenu';
 import Logo from 'src/components/LogoSign';
+import Link from '@/components/Link';
 
 const SidebarWrapper = styled(Box)(
   ({ theme }) => `
@@ -80,13 +81,14 @@ function Sidebar() {
         />
         <Box p={2}>
           <Button
-            href=""
             target="_blank"
             rel="noopener noreferrer"
             variant="contained"
             color="error"
             size="small"
             fullWidth
+             component={Link}
+            href="/api/auth/logout"
           >
             Logout
           </Button>

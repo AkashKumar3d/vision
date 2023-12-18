@@ -14,7 +14,7 @@ const LoginTab = () => {
   };
 
   return (
-    <Card sx={{padding:4}}>
+    <Card elevation={10} sx={{padding:4, width:"70%"}} >
       <AppBar position='static' sx={{ width: '100%',borderRadius:"10px", border:"1px", }}>
         <Tabs
           value={openTab}
