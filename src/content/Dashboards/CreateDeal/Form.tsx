@@ -2,95 +2,137 @@ import { useState } from 'react';
 import {
   Card,
   CardHeader,
-  ListItemText,
   List,
-  ListItem,
   Divider,
   Switch,
-  ListItemAvatar,
-  Avatar,
-  styled,
   TextField,
   Button,
-  Container
+  Container,
+  Grid,
+  CardContent,
+  Box,
+  MenuItem,
+  Typography,
+  FormLabel,
+  InputLabel
 } from '@mui/material';
-import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
-import PhoneLockedTwoToneIcon from '@mui/icons-material/PhoneLockedTwoTone';
-import EmailTwoToneIcon from '@mui/icons-material/EmailTwoTone';
-import Text from 'src/components/Text';
+import { Label } from '@mui/icons-material';
 
-const AvatarWrapperError = styled(Avatar)(
-  ({ theme }) => `
-      background-color: ${theme.colors.error.lighter};
-      color:  ${theme.colors.error.main};
-`
-);
 
-const AvatarWrapperSuccess = styled(Avatar)(
-  ({ theme }) => `
-      background-color: ${theme.colors.success.lighter};
-      color:  ${theme.colors.success.main};
-`
-);
-
-const AvatarWrapperWarning = styled(Avatar)(
-  ({ theme }) => `
-      background-color: ${theme.colors.warning.lighter};
-      color:  ${theme.colors.warning.main};
-`
-);
+const label = { inputProps: { 'aria-label': 'Switch demo' } };
+const currencies = [
+  {
+    value: 'Co-Landing',
+    label: 'Co-Landing'
+  },
+  {
+    value: 'Term Loan',
+    label: 'Term Loan'
+  },
+  {
+    value: 'Co-Landing',
+    label: 'Co-Landing'
+  },
+  {
+    value: 'Term Loan',
+    label: 'Term Loan'
+  }
+];
 
 function CreateForm() {
-  const [checked, setChecked] = useState(['phone_verification']);
+  const [currency, setCurrency] = useState('EUR');
 
-  const handleToggle = (value: string) => () => {
-    const currentIndex = checked.indexOf(value);
-    const newChecked = [...checked];
-
-    if (currentIndex === -1) {
-      newChecked.push(value);
-    } else {
-      newChecked.splice(currentIndex, 1);
-    }
-
-    setChecked(newChecked);
+  const handleChange = (event) => {
+    setCurrency(event.target.value);
   };
 
   return (
-    <Container maxWidth='lg'>
-      <Card>
-      <CardHeader title="Account Security" />
-      <Divider />
-      <List sx={{ flexFlow:"column", display:"flex", alignItems:"center", justifyContent:"space-between", p:3}}>
-      <TextField
-        required
-        id="filled-required"
-        label="Required new"
-        defaultValue="Hello Khush"
-        variant="filled"
-      />
-      <TextField
-        id="filled-password-input"
-        label="Password"
-        type="password"
-        autoComplete="current-password"
-        variant="filled"
-      />
-      <TextField
-        id="filled-number"
-        label="Number"
-        type="number"
-        InputLabelProps={{
-          shrink: true
-        }}
-        variant="filled"
-      />
-      <Button sx={{ margin: 1 }} variant="contained" color="primary">
-                  Primary
-                </Button>
-      </List>
-    </Card>
-    </Container>
+    <Container maxWidth="lg">
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="stretch"
+          spacing={3}
+        >
+          <Grid item xs={12}>
+            <Card>
+              <CardHeader title="Create Deal" />
+              <Divider />
+              <CardContent>
+                <Box
+                  component="form"
+                  sx={{
+                    '& .MuiTextField-root': { m: 1, width: '25ch' }
+                  }}
+                  noValidate
+                  autoComplete="off"
+                >
+            <List sx={{flexDirection:"column", display:"flex", alignItems:"center", justifyContent:"space-between", gap:4,}}>
+              <Box>
+            <TextField
+              id="filled-number"
+              label="Deal Creator"
+              type="text"
+              InputLabelProps={{
+                shrink: true
+              }}
+              variant="filled"
+            />
+            <TextField
+                      id="filled-select-Product"
+                      select
+                      required
+                      label="Product"
+                      value={currency}
+                      onChange={handleChange}
+                      variant="filled"
+                    >
+                      {currencies.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+            </TextField>
+            </Box>
+
+            <Box sx={{display:"flex", justifyContent:"space-between" }}>
+            <TextField
+              id="filled-number"
+              required
+              label="Amount"
+              type="number"
+              fullWidth
+              InputLabelProps={{
+                shrink: true
+              }}
+              variant="filled"
+            />
+            
+            <Typography sx={{ display:"flex", justifyContent:"space-between", alignItems:"center", paddingX:2, gap:3}}>
+            <InputLabel sx={{ width:"100%"}} variant='standard' filled >Consultant</InputLabel>
+            <Box >
+              <InputLabel required>
+                Yes <Switch {...label} defaultChecked />
+              
+              </InputLabel>
+              <InputLabel required>
+                No <Switch {...label}  />
+              </InputLabel>
+              </Box>
+            </Typography>
+            </Box>
+            <Button sx={{ margin: 1 }} variant="contained" color="primary">
+                        Submit
+                      </Button>      
+            </List>
+        
+          </Box>
+          </CardContent>
+          </Card>
+          </Grid>
+          </Grid>
+          </Container>
     
   );
 }

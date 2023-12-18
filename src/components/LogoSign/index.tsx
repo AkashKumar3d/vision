@@ -77,7 +77,7 @@ const LogoSignInner = styled(Box)(
 `
 );
 
-const TooltipWrapper = styled(({ className, ...props }: TooltipProps) => (
+export const TooltipWrapper = styled(({ className, ...props }: TooltipProps) => (
   <Tooltip {...props} classes={{ popper: className }} />
 ))(({ theme }) => ({
   [`& .${tooltipClasses.tooltip}`]: {
