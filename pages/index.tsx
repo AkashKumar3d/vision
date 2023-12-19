@@ -18,7 +18,7 @@ import Logo from 'src/components/LogoSign';
 import Hero from 'src/content/Overview/Hero';
 import LoginCard from '@/content/LoginPage/LoginCard';
 import Documentation from '@/content/LoginPage/Documentation';
-import BGLogin from '@/public/static/images/background/bgloginNEW.svg'
+
 import Image from 'next/image';
 
 const HeaderWrapper = styled(Card)(
@@ -26,8 +26,8 @@ const HeaderWrapper = styled(Card)(
   width: 100%;
   display: flex;
   align-items: center;
-  height: ${theme.spacing(10)};
-  margin-bottom: ${theme.spacing(1)};
+  height: ${theme.spacing(8)};
+  margin-bottom: ${theme.spacing(2)};
 `
 );
 
@@ -43,7 +43,7 @@ const OverviewWrapper = styled(Box)(
 function Overview() {
   return (
     <OverviewWrapper sx={{ position:"relative"}}>
-      <img src={BGLogin} style={{position:"absolute", objectFit:"cover", backgroundColor:"white", opacity:"0.2", width:"100%", height:"100%"}} alt='BgLoginNew'  />
+      
       <Head>
         <title>Vision LogIn/SignIn</title>
       </Head>
@@ -64,22 +64,28 @@ function Overview() {
                 </Grid>
                 <Button
                   component={Link}
-                  href="/api/auth/login/route?returnTo=/dashboard"
+                  href="/api/auth/login"
                   variant="contained"
                   sx={{ ml: 2 }}
                 >
                   Register
                 </Button>
+                {/* <Button
+                  component={Link}
+                  href="/api/auth/logout"
+                  variant="contained"
+                  sx={{ ml: 2 }}
+                >
+                  Logout
+                </Button> */}
               </Box>
             </Box>
           </Box>
         </Container>
       </HeaderWrapper>
-      <Box position={"relative"} sx={{opacity:"0.98"}}>
+      <Box position={"relative"} sx={{opacity:"0.98",width:"100%"}}>
         <LoginCard/>
-      </Box>
-      <Box>
-        <Hero/>
+        
       </Box>
     </OverviewWrapper>
   );

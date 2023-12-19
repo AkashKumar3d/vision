@@ -14,7 +14,7 @@ const PhoneLogin = () => {
     const handleAction = () => {
       if (showOtpField) {
         if (otp.trim() !== '') {
-          router.push('/dashboard/crypto');
+          router.push('/dashboards/crypto');
         } else {
           alert('Please enter a valid OTP');
         }
