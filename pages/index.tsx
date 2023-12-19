@@ -63,13 +63,14 @@ function Overview() {
                   <Documentation/>
                 </Grid>
                 <Button
-                  component={Link}
+                  // component={Link}
                   href="/api/auth/login"
                   variant="contained"
                   sx={{ ml: 2 }}
                 >
                   Register
                 </Button>
+                {/* sdf */}
                 {/* <Button
                   component={Link}
                   href="/api/auth/logout"

@@ -87,7 +87,7 @@ function Sidebar() {
             color="error"
             size="small"
             fullWidth
-             component={Link}
+            //  component={Link}
             href="/api/auth/logout"
           >
             Logout

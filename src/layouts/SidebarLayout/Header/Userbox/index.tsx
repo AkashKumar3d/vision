@@ -138,7 +138,9 @@ function HeaderUserbox() {
         </List>
         <Divider />
         <Box sx={{ m: 1 }}>
-          <Button color="primary" fullWidth component={Link} href="/api/auth/logout">
+          <Button color="primary" fullWidth
+            // component={Link}
+            href="/api/auth/logout">
             <LockOpenTwoToneIcon sx={{ mr: 1 }} />
             Sign out
           </Button>
