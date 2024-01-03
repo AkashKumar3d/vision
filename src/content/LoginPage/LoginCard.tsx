@@ -1,12 +1,12 @@
 // Import the necessary components and hooks
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import Paper from "@mui/material/Paper";
+// import CssBaseline from "@mui/material/CssBaseline";
+// import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { Container } from "@mui/material";
-import Image from "next/image"; // Import the Image component
+// import Image from "next/image"; // Import the Image component
 import Logo from "../../../public/static/images/logo/VisionLogo.svg";
 import LoginTab from "./LoginTab";
 import Link1 from 'src/components/Link';
@@ -75,7 +75,6 @@ export default function LoginCard() {
 
   return (
     <Container className={classes.container}>
-      <link rel="stylesheet" href="/globle.css" />
       <ul className="circles">
         <Box width={"100%"} height={"100%"} display={"flex"}>
       <Box className={classes.folder_tab}>

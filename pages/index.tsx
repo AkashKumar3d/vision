@@ -1,25 +1,25 @@
 import {
-  Typography,
+  // Typography,
   Box,
   Card,
   Container,
   Button,
   styled,
-  Paper,
+  // Paper,
   Grid
 } from '@mui/material';
 import type { ReactElement } from 'react';
 import BaseLayout from 'src/layouts/BaseLayout';
 
-import Link from 'src/components/Link';
+// import Link from 'src/components/Link';
 import Head from 'next/head';
 
 import Logo from 'src/components/LogoSign';
-import Hero from 'src/content/Overview/Hero';
+// import Hero from 'src/content/Overview/Hero';
 import LoginCard from '@/content/LoginPage/LoginCard';
 import Documentation from '@/content/LoginPage/Documentation';
 
-import Image from 'next/image';
+// import Image from 'next/image';
 
 const HeaderWrapper = styled(Card)(
   ({ theme }) => `

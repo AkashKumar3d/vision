@@ -1,6 +1,6 @@
 import { FC, ChangeEvent, useState } from 'react';
 import { format } from 'date-fns';
-import numeral from 'numeral';
+// import numeral from 'numeral';
 import PropTypes from 'prop-types';
 import {
   Tooltip,
@@ -27,8 +27,8 @@ import {
 
 import Label from '@/components/Label';
 import { CryptoOrder, CryptoOrderStatus } from '@/models/crypto_order';
-import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
-import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
+// import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
+// import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 import BulkActions from './BulkActions';
 import RecommendIcon from '@mui/icons-material/Recommend';
 

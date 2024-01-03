@@ -16,7 +16,7 @@ import {
 
 import SidebarMenu from './SidebarMenu';
 import Logo from 'src/components/LogoSign';
-import Link from '@/components/Link';
+// import Link from '@/components/Link';
 
 const SidebarWrapper = styled(Box)(
   ({ theme }) => `
