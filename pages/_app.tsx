@@ -1,4 +1,3 @@
-
 import type { ReactElement, ReactNode } from 'react';
 
 import type { NextPage } from 'next';
@@ -34,7 +33,6 @@ function TokyoApp(props: TokyoAppProps) {
   Router.events.on('routeChangeStart', nProgress.start);
   Router.events.on('routeChangeError', nProgress.done);
   Router.events.on('routeChangeComplete', nProgress.done);
-
 
   return (
     <>
