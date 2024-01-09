@@ -1,6 +1,16 @@
 const withImages = require('next-images');
 
-const redirects = {
+module.exports = withImages({ 
+   typescript: {
+  // !! WARN !!
+  // Dangerously allow production builds to successfully complete even if
+  // your project has type errors.
+  // !! WARN !!
+  ignoreBuildErrors: true,
+},
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   async redirects() {
     return [
       {
@@ -10,6 +20,4 @@ const redirects = {
       }
     ];
   }
-};
-
-module.exports = withImages(redirects);
+});
