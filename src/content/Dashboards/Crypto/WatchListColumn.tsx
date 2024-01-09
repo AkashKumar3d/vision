@@ -25,9 +25,10 @@ const AvatarWrapper = styled(Avatar)(
     border-radius: 60px;
     height: ${theme.spacing(5.5)};
     width: ${theme.spacing(5.5)};
-    background: ${theme.palette.mode === 'dark'
-      ? theme.colors.alpha.trueWhite[30]
-      : alpha(theme.colors.alpha.black[100], 0.07)
+    background: ${
+      theme.palette.mode === 'dark'
+        ? theme.colors.alpha.trueWhite[30]
+        : alpha(theme.colors.alpha.black[100], 0.07)
     };
   
     img {
@@ -168,7 +169,6 @@ function WatchListColumn() {
                   src="/static/images/placeholders/logo/bitcoin.png"
                 /> */}
                 <FcDebt style={{ width: '2rem', height: '2rem' }} />
-
               </AvatarWrapper>
               <Box>
                 <Typography variant="h4" noWrap>
@@ -196,9 +196,7 @@ function WatchListColumn() {
               >
                 00 crs
               </Typography>
-              <Text color="success">
-                {/* <b>+12.5%</b> */}
-              </Text>
+              <Text color="success">{/* <b>+12.5%</b> */}</Text>
             </Box>
             <Box
               sx={{
@@ -272,9 +270,7 @@ function WatchListColumn() {
               >
                 00 crs
               </Typography>
-              <Text color="error">
-                {/* <b>-3.24%</b> */}
-              </Text>
+              <Text color="error">{/* <b>-3.24%</b> */}</Text>
             </Box>
             <Box
               sx={{
@@ -348,9 +344,7 @@ function WatchListColumn() {
               >
                 00
               </Typography>
-              <Text color="error">
-                {/* <b>-0.33%</b> */}
-              </Text>
+              <Text color="error">{/* <b>-0.33%</b> */}</Text>
             </Box>
             <Box
               sx={{

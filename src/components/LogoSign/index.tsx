@@ -77,9 +77,11 @@ const LogoSignInner = styled(Box)(
 `
 );
 
-export const TooltipWrapper = styled(({ className, ...props }: TooltipProps) => (
-  <Tooltip {...props} classes={{ popper: className }} />
-))(({ theme }) => ({
+export const TooltipWrapper = styled(
+  ({ className, ...props }: TooltipProps) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  )
+)(({ theme }) => ({
   [`& .${tooltipClasses.tooltip}`]: {
     backgroundColor: theme.colors.alpha.trueWhite[100],
     color: theme.palette.getContrastText(theme.colors.alpha.trueWhite[100]),
@@ -98,14 +100,13 @@ function Logo() {
   const theme = useTheme();
 
   return (
-    <TooltipWrapper
-      title="Vision"
-      arrow
-    >
+    <TooltipWrapper title="Vision" arrow>
       <LogoWrapper href="/">
-        
-          <img src="/static/images/logo/VisionLogo.svg" width="200px" height="40px" /> 
-      
+        <img
+          src="/static/images/logo/VisionLogo.svg"
+          width="200px"
+          height="40px"
+        />
       </LogoWrapper>
     </TooltipWrapper>
   );

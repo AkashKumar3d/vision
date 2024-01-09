@@ -222,7 +222,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
               <TableCell>Product</TableCell>
               <TableCell>Product ID</TableCell>
               <TableCell align="right">Requirement INR</TableCell>
-              <TableCell align='center'>Interested Count</TableCell>
+              <TableCell align="center">Interested Count</TableCell>
               <TableCell align="center">Status</TableCell>
               <TableCell align="right">Actions</TableCell>
             </TableRow>
@@ -273,7 +273,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
                       {cryptoOrder.orderID}
                     </Typography>
                   </TableCell>
-                
+
                   <TableCell align="right">
                     <Typography
                       variant="body1"
@@ -291,7 +291,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
                       )}
                     </Typography> */}
                   </TableCell>
-                    <TableCell align='center'>
+                  <TableCell align="center">
                     <Typography
                       variant="body1"
                       fontWeight="bold"

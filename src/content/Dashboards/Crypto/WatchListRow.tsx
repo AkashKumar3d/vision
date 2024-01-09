@@ -31,9 +31,10 @@ const AvatarWrapper = styled(Avatar)(
     border-radius: 60px;
     height: ${theme.spacing(5.5)};
     width: ${theme.spacing(5.5)};
-    background: ${theme.palette.mode === 'dark'
-      ? theme.colors.alpha.trueWhite[30]
-      : alpha(theme.colors.alpha.black[100], 0.07)
+    background: ${
+      theme.palette.mode === 'dark'
+        ? theme.colors.alpha.trueWhite[30]
+        : alpha(theme.colors.alpha.black[100], 0.07)
     };
   
     img {
@@ -267,9 +268,7 @@ function WatchListRow() {
               >
                 00 crs
               </Typography>
-              <Text color="error">
-                {/* <b>-3.24%</b> */}
-              </Text>
+              <Text color="error">{/* <b>-3.24%</b> */}</Text>
             </Box>
             <TrendingUpTwoToneIcon
               sx={{
@@ -337,9 +336,7 @@ function WatchListRow() {
               >
                 00
               </Typography>
-              <Text color="error">
-                {/* <b>-0.33%</b> */}
-              </Text>
+              <Text color="error">{/* <b>-0.33%</b> */}</Text>
             </Box>
             <TrendingUpTwoToneIcon
               sx={{

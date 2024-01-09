@@ -1,4 +1,3 @@
-
 import type { ReactElement, ReactNode } from 'react';
 
 import type { NextPage } from 'next';
@@ -14,7 +13,7 @@ import createEmotionCache from 'src/createEmotionCache';
 import { SidebarProvider } from 'src/contexts/SidebarContext';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import { UserProvider } from '@auth0/nextjs-auth0/client'
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -34,7 +33,6 @@ function TokyoApp(props: TokyoAppProps) {
   Router.events.on('routeChangeStart', nProgress.start);
   Router.events.on('routeChangeError', nProgress.done);
   Router.events.on('routeChangeComplete', nProgress.done);
-
 
   return (
     <>

@@ -95,7 +95,7 @@ function RecentOrders() {
       amount: 234234,
       cryptoCurrency: 'BTC',
       currency: '$'
-    },
+    }
     // {
     //   id: '8',
     //   orderDetails: 'Paypal Withdraw',

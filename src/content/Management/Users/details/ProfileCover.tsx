@@ -137,20 +137,20 @@ const ProfileCover = ({ user }) => {
           {user.email} | {user.phoneNumber} | {user.city}
         </Typography>
         <Box>
-            <Button size="small" variant="text">
+          <Button size="small" variant="text">
             {user.platformName}
-            </Button>
-            <Button size="small" sx={{ mx: 1 }} variant="outlined">
+          </Button>
+          <Button size="small" sx={{ mx: 1 }} variant="outlined">
             {user.socialMedia}
-            </Button>
-          </Box>
-          <Divider sx={{my:"5px"}}/>
+          </Button>
+        </Box>
+        <Divider sx={{ my: '5px' }} />
         <Box
           display={{ xs: 'block', md: 'flex' }}
           alignItems="center"
           justifyContent="space-between"
         >
-      <EnrollmentDetail/>
+          <EnrollmentDetail />
         </Box>
       </Box>
     </>

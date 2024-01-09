@@ -12,7 +12,7 @@ import {
   styled
 } from '@mui/material';
 import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
-import { FcDebt } from "react-icons/fc";
+import { FcDebt } from 'react-icons/fc';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
@@ -28,9 +28,10 @@ const AvatarWrapper = styled(Avatar)(
     border-radius: 60px;
     height: ${theme.spacing(5.5)};
     width: ${theme.spacing(5.5)};
-    background: ${theme.palette.mode === 'dark'
-      ? theme.colors.alpha.trueWhite[30]
-      : alpha(theme.colors.alpha.black[100], 0.07)
+    background: ${
+      theme.palette.mode === 'dark'
+        ? theme.colors.alpha.trueWhite[30]
+        : alpha(theme.colors.alpha.black[100], 0.07)
     };
   
     img {
@@ -77,37 +78,35 @@ const CardAddAction = styled(Card)(
 `
 );
 
-
-
 function Wallets() {
-  const [liveDeals, setLiveDeals] = useState([])
+  const [liveDeals, setLiveDeals] = useState([]);
 
-  const router =useRouter()
+  const router = useRouter();
 
-  const handleopen =()=>{
-    const enrollUser=localStorage.getItem("enrollstatus")
-    if(enrollUser=="no" || enrollUser==null){
-      router.push("/management/profile")
-    }else{
-      router.push("/dashboards/createdeal")
+  const handleopen = () => {
+    const enrollUser = localStorage.getItem('enrollstatus');
+    if (enrollUser == 'no' || enrollUser == null) {
+      router.push('/management/profile');
+    } else {
+      router.push('/dashboards/createdeal');
     }
-    console.log(enrollUser , "enroll" )
-    }
+    console.log(enrollUser, 'enroll');
+  };
 
   useEffect(() => {
     const fetchLiveDeals = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/deal")
-        setLiveDeals(res?.data)
-        console.log(res?.data)
+        const res = await axios.get('http://localhost:3000/api/deal');
+        setLiveDeals(res?.data);
+        console.log(res?.data);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-    }
-    fetchLiveDeals()
-  }, [])
+    };
+    fetchLiveDeals();
+  }, []);
 
-  console.log(liveDeals, "response")
+  console.log(liveDeals, 'response');
   return (
     <>
       <Box
@@ -128,47 +127,44 @@ function Wallets() {
           Add new deal
         </Button>
       </Box>
-      <Grid container spacing={3} height={300} overflow={"scroll"}>
-
-        {
-          liveDeals?.map((item, index) => {
-            return (
-              <Grid xs={12} sm={6} md={3} item>
-                <Card
-                  sx={{
-                    px: 1
-                  }}
-                >
-                  <CardContent>
-                    <AvatarWrapper>
-
-                      <FcDebt style={{ width: '2rem', height: '2rem' }} />
-                    </AvatarWrapper>
-                    <Typography variant="h5" noWrap>
-                      {item?.orderID}
+      <Grid container spacing={3} height={300} overflow={'scroll'}>
+        {liveDeals?.map((item, index) => {
+          return (
+            <Grid xs={12} sm={6} md={3} item>
+              <Card
+                sx={{
+                  px: 1
+                }}
+              >
+                <CardContent>
+                  <AvatarWrapper>
+                    <FcDebt style={{ width: '2rem', height: '2rem' }} />
+                  </AvatarWrapper>
+                  <Typography variant="h5" noWrap>
+                    {item?.orderID}
+                  </Typography>
+                  <Typography variant="subtitle1" noWrap>
+                    2 Lender
+                  </Typography>
+                  <Box
+                    sx={{
+                      pt: 3
+                    }}
+                  >
+                    <Typography variant="h3" gutterBottom noWrap>
+                      {`${
+                        item?.cryptoCurrency ? item?.cryptoCurrency : '0'
+                      } CR`}
                     </Typography>
-                    <Typography variant="subtitle1" noWrap>
-                      2 Lender
+                    <Typography variant="subtitle2" noWrap>
+                      Consultant: No
                     </Typography>
-                    <Box
-                      sx={{
-                        pt: 3
-                      }}
-                    >
-                      <Typography variant="h3" gutterBottom noWrap>
-                        {`${item?.cryptoCurrency? item?.cryptoCurrency:"0"} CR`}
-                      </Typography>
-                      <Typography variant="subtitle2" noWrap>
-                        Consultant: No
-                      </Typography>
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Grid>
-            )
-          })
-        }
-
+                  </Box>
+                </CardContent>
+              </Card>
+            </Grid>
+          );
+        })}
 
         <Grid xs={12} sm={6} md={3} item>
           <Tooltip arrow title="Click to add a new deal">

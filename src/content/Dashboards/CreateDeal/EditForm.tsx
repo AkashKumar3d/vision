@@ -1,17 +1,29 @@
-import { Box, Button, Card, CardContent, Divider, Grid, Modal, Typography } from '@mui/material'
-import React from 'react'
+import {
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Divider,
+  Grid,
+  Modal,
+  Typography
+} from '@mui/material';
+import React from 'react';
 
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import Text from '@/components/Text';
 
 const EditForm = ({ open, data, setOpen, selectedIndex }) => {
   return (
-    <Modal open={open} onClose={()=> {
-      setOpen(false)
-    }}>
+    <Modal
+      open={open}
+      onClose={() => {
+        setOpen(false);
+      }}
+    >
       <Grid container spacing={3}>
         <Grid item xs={12}>
-        <Card>
+          <Card>
             <Box
               p={3}
               display="flex"
@@ -34,7 +46,6 @@ const EditForm = ({ open, data, setOpen, selectedIndex }) => {
             <CardContent sx={{ p: 4 }}>
               <Typography variant="subtitle2">
                 <Grid container spacing={0}>
-                  
                   <Grid item xs={12} sm={4} md={3} textAlign={{ sm: 'right' }}>
                     <Box pr={3} pb={2}>
                       Deal Created By
@@ -77,24 +88,22 @@ const EditForm = ({ open, data, setOpen, selectedIndex }) => {
                   </Grid>
                   <Grid item xs={12} sm={4} md={3} textAlign={{ sm: 'right' }}>
                     <Box pr={3} pb={2}>
-                    Consultant
+                      Consultant
                     </Box>
                   </Grid>
                   <Grid item xs={12} sm={8} md={9}>
                     <Box sx={{ maxWidth: { xs: 'auto', sm: 300 } }}>
-                      <Text color="black">
-                        Yes
-                      </Text>
+                      <Text color="black">Yes</Text>
                     </Box>
                   </Grid>
                 </Grid>
               </Typography>
             </CardContent>
           </Card>
-            </Grid>
+        </Grid>
       </Grid>
     </Modal>
-  )
-}
+  );
+};
 
-export default EditForm
+export default EditForm;

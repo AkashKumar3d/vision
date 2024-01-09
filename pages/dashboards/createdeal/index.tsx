@@ -15,12 +15,11 @@ import { useState } from 'react';
 import CreateDealButton from '@/content/Dashboards/CreateDeal/CreateDealButton';
 import { filterDataAndLastSevenDaysData } from '@/util/dataTimeUtil';
 
-
 export const cryptoOrders: CryptoOrder[] = [
   {
     id: '1',
     orderDetails: 'Owner',
-    createdBy:'Khushboo',
+    createdBy: 'Khushboo',
     orderDate: new Date().getTime(),
     status: 'completed',
     orderID: 'Term Loan',
@@ -34,8 +33,8 @@ export const cryptoOrders: CryptoOrder[] = [
   {
     id: '1',
     orderDetails: 'Owner',
-    createdBy:'Khushboo',
-    orderDate: new Date("2023-12-21").getTime(),
+    createdBy: 'Khushboo',
+    orderDate: new Date('2023-12-21').getTime(),
     status: 'completed',
     orderID: 'Term Loan',
     sourceName: 'Bank Account',
@@ -48,8 +47,8 @@ export const cryptoOrders: CryptoOrder[] = [
   {
     id: '1',
     orderDetails: 'Owner',
-    createdBy:'Khushboo',
-    orderDate: new Date("2023-12-27").getTime(),
+    createdBy: 'Khushboo',
+    orderDate: new Date('2023-12-27').getTime(),
     status: 'completed',
     orderID: 'Term Loan',
     sourceName: 'Bank Account',
@@ -58,14 +57,14 @@ export const cryptoOrders: CryptoOrder[] = [
     amount: 56787,
     cryptoCurrency: 'cr',
     currency: '₹'
-  },
+  }
 ];
 function DashboardCreatDeal() {
-  const [list, setList] = useState(cryptoOrders)
+  const [list, setList] = useState(cryptoOrders);
 
   return (
     <div>
-        <Head>
+      <Head>
         <title>Create Deal</title>
       </Head>
       <Container maxWidth="lg">
@@ -80,11 +79,15 @@ function DashboardCreatDeal() {
             <CreateDealButton setList={setList} />
           </Grid>
           <Grid item xs={12} lg={12}>
-            <CreatedDealTable cryptoOrders={filterDataAndLastSevenDaysData({accessor:"orderDate",data:list})}/>
+            <CreatedDealTable
+              cryptoOrders={filterDataAndLastSevenDaysData({
+                accessor: 'orderDate',
+                data: list
+              })}
+            />
           </Grid>
         </Grid>
       </Container>
-      
     </div>
   );
 }

@@ -27,7 +27,7 @@ function PageHeader() {
           All Deal
         </Typography>
         <Typography variant="subtitle2">
-        "Seal every deal with purpose, passion, and precision."
+          "Seal every deal with purpose, passion, and precision."
         </Typography>
       </Grid>
     </Grid>

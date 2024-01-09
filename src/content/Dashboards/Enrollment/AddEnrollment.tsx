@@ -1,5 +1,18 @@
 import * as React from 'react';
-import { Avatar, Box, Button, Dialog, DialogTitle, Grid, List, ListItem, ListItemAvatar, ListItemButton, ListItemText, Typography } from '@mui/material';
+import {
+  Avatar,
+  Box,
+  Button,
+  Dialog,
+  DialogTitle,
+  Grid,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemButton,
+  ListItemText,
+  Typography
+} from '@mui/material';
 import { Add, Label } from '@mui/icons-material';
 import EnrollmentBG from '../../../../public/static/images/background/enrollment1.svg';
 import EnrollmentCoinBG from '../../../../public/static/images/background/enrollment2.svg';
@@ -7,11 +20,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 export default function AddEnrollment() {
-  const router = useRouter()
-  
+  const router = useRouter();
+
   const handleEnrollment = () => {
-    router.push('/profile')
-  }
+    router.push('/profile');
+  };
 
   return (
     <Box
@@ -20,42 +33,79 @@ export default function AddEnrollment() {
       justifyContent="space-between"
       sx={{
         pb: 3
-      }}>
-      <Dialog onClose={() => { }} open maxWidth={'lg'}>
-        <Box maxWidth={'100%'} sx={{ color: '#ef8450', width: "100vw", height: '100vh', }}>
-          <List sx={{ height: '100%', display: 'flex ', justifyContent: 'center', alignItems: 'center', width: "100%", backgroundColor: "#347362" }}>
+      }}
+    >
+      <Dialog onClose={() => {}} open maxWidth={'lg'}>
+        <Box
+          maxWidth={'100%'}
+          sx={{ color: '#ef8450', width: '100vw', height: '100vh' }}
+        >
+          <List
+            sx={{
+              height: '100%',
+              display: 'flex ',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%',
+              backgroundColor: '#347362'
+            }}
+          >
             <Box
               style={{
-                display: 'flex ', justifyContent: 'center', gap: '5%', alignItems: 'center',
+                display: 'flex ',
+                justifyContent: 'center',
+                gap: '5%',
+                alignItems: 'center',
                 flexDirection: 'column',
                 height: '100%',
-                width: "100%",
+                width: '100%',
                 wordSpacing: 2.5,
                 letterSpacing: 1.5,
-                backgroundColor: "#fff",
-                borderRadius: "5px 200px 5px 200px"
+                backgroundColor: '#fff',
+                borderRadius: '5px 200px 5px 200px'
               }}
             >
-              <Typography variant='h2' width={350} textAlign={'center'}>
+              <Typography variant="h2" width={350} textAlign={'center'}>
                 Digital Non-Banking Exchange Platform Enrollment Dashboard
               </Typography>
-              <Typography variant='h5' color={'#00000070'} textAlign={'center'} lineHeight={1.7}>
-                A Comprehensive Interface Designed for<br /><label style={{ color: "GrayText", letterSpacing: 2, }}>Streamlined Registration, Monitoring, and Management </label> <br /> of Digital Exchange Participants.
+              <Typography
+                variant="h5"
+                color={'#00000070'}
+                textAlign={'center'}
+                lineHeight={1.7}
+              >
+                A Comprehensive Interface Designed for
+                <br />
+                <label style={{ color: 'GrayText', letterSpacing: 2 }}>
+                  Streamlined Registration, Monitoring, and Management{' '}
+                </label>{' '}
+                <br /> of Digital Exchange Participants.
               </Typography>
-              <Button variant='contained' onClick={handleEnrollment}>
+              <Button variant="contained" onClick={handleEnrollment}>
                 Add Enrollment
               </Button>
-
             </Box>
             <Box
               style={{
                 position: 'relative',
                 height: '100%',
-                width: "100%"
+                width: '100%'
               }}
             >
-              <Image src={EnrollmentBG} alt='EnrollmentBg' width={600} height={600} style={{ position: "absolute", right: 0, top: 0 }} />
-              <Image src={EnrollmentCoinBG} alt='EnrollmentBg' width={300} height={300} style={{ position: "absolute", bottom: 0 }} />
+              <Image
+                src={EnrollmentBG}
+                alt="EnrollmentBg"
+                width={600}
+                height={600}
+                style={{ position: 'absolute', right: 0, top: 0 }}
+              />
+              <Image
+                src={EnrollmentCoinBG}
+                alt="EnrollmentBg"
+                width={300}
+                height={300}
+                style={{ position: 'absolute', bottom: 0 }}
+              />
               <ListItem
                 disableGutters
                 sx={{
@@ -64,8 +114,7 @@ export default function AddEnrollment() {
                   width: '100%',
                   zIndex: 2
                 }}
-              >
-              </ListItem>
+              ></ListItem>
             </Box>
           </List>
         </Box>

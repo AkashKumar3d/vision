@@ -13,7 +13,6 @@ import ProfileForm from 'pages/profile';
 import EnrollmentForm from '@/content/Dashboards/Enrollment/EnrollmentForm';
 import { useRouter } from 'next/router';
 
-
 function ManagementUserProfile() {
   const user = {
     savedCards: 7,
@@ -23,8 +22,8 @@ function ManagementUserProfile() {
     email: 'abhishekhjha123@gmail.com',
     platformName: 'Term Loan',
     socialMedia: 'LinkedIn',
-    phoneNumber:"9136827371",
-    city:"Mumbai"
+    phoneNumber: '9136827371',
+    city: 'Mumbai'
   };
 
   return (
@@ -40,9 +39,9 @@ function ManagementUserProfile() {
           alignItems="stretch"
           spacing={3}
         >
-          <Grid item xs={12} >
+          <Grid item xs={12}>
             {/* <ProfileForm/> */}
-            <EnrollmentForm/>
+            <EnrollmentForm />
           </Grid>
           <Grid item xs={12} md={8}>
             <ProfileCover user={user} />

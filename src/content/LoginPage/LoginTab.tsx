@@ -14,11 +14,14 @@ const LoginTab = () => {
   };
 
   return (
-    <Card elevation={10} sx={{padding:4, width:"70%"}} >
-      <AppBar position='static' sx={{ width: '100%',borderRadius:"10px", border:"1px", }}>
+    <Card elevation={10} sx={{ padding: 4, width: '70%' }}>
+      <AppBar
+        position="static"
+        sx={{ width: '100%', borderRadius: '10px', border: '1px' }}
+      >
         <Tabs
           value={openTab}
-          sx={{borderRadius:"10px", border:"1px", bgcolor:"white"}}
+          sx={{ borderRadius: '10px', border: '1px', bgcolor: 'white' }}
           onChange={handleTab}
           variant="fullWidth"
           textColor="primary"
