@@ -146,12 +146,6 @@ function HeaderUserbox() {
               <ListItemText primary="Messenger" />
             </ListItem>
           </NextLink>
-          <NextLink href="/management/profile/settings" passHref>
-            <ListItem button>
-              <AccountTreeTwoToneIcon fontSize="small" />
-              <ListItemText primary="Account Settings" />
-            </ListItem>
-          </NextLink>
         </List>
         <Divider />
         <Box sx={{ m: 1 }}>

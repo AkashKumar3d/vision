@@ -128,12 +128,12 @@ function Wallets() {
           Add new deal
         </Button>
       </Box>
-      <Grid container spacing={3} height={300} overflow={"scroll"}>
+      <Grid height={300} px={3} display={"flex"} justifyItems={"center"} alignItems={"center"} gap={2} displayPrint={"none"} overflow={"scroll"}>
 
         {
           liveDeals?.map((item, index) => {
             return (
-              <Grid xs={12} sm={6} md={3} item>
+              <Grid  xs={12} sm={6} md={3} item>
                 <Card
                   sx={{
                     px: 1

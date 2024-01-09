@@ -31,6 +31,7 @@ import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 import BulkActions from './BulkActions';
 import RecommendIcon from '@mui/icons-material/Recommend';
+import InterestedUser from './InterestedUser';
 
 interface RecentOrdersTableProps {
   className?: string;
@@ -92,6 +93,8 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
   const selectedBulkActions = selectedCryptoOrders.length > 0;
   const [page, setPage] = useState<number>(0);
   const [limit, setLimit] = useState<number>(5);
+  const [ open, setOpen ] = useState<boolean>(false);
+  const [ selectedIndex, setSelectedId ] = useState<number>(0);
   const [filters, setFilters] = useState<Filters>({
     status: null
   });
@@ -177,11 +180,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
 
   return (
     <Card>
-      {selectedBulkActions && (
-        <Box flex={1} p={2}>
-          <BulkActions />
-        </Box>
-      )}
+      <InterestedUser  data={cryptoOrders} open={open} setOpen={setOpen} selectedIndex={selectedIndex} />
       {!selectedBulkActions && (
         <CardHeader
           action={
@@ -228,7 +227,7 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {paginatedCryptoOrders.map((cryptoOrder) => {
+            {paginatedCryptoOrders.map((cryptoOrder,indexOfElementInList) => {
               const isCryptoOrderSelected = selectedCryptoOrders.includes(
                 cryptoOrder.id
               );
@@ -319,6 +318,10 @@ const RecentOrdersTable: FC<RecentOrdersTableProps> = ({ cryptoOrders }) => {
                         }}
                         color="inherit"
                         size="small"
+                        onClick={()=> {
+                          setOpen((pre)=> !pre);
+                          setSelectedId(indexOfElementInList)
+                        }}
                       >
                         <RecommendIcon fontSize="small" />
                         {/* Inter */}

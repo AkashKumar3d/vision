@@ -1,16 +1,37 @@
-import { Box, Button, Card, CardContent, Divider, Grid, MenuItem, TextField, Typography } from '@mui/material'
+import { Box, Button, Card, CardContent, Dialog, Divider, FormControl, Grid, IconButton, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { currencies } from '../../../../pages/profile';
 import Component, { Upload } from './Component';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import { ro } from 'date-fns/locale';
+import { Cancel } from '@mui/icons-material';
 
-const EnrollmentForm = () => {
+const EnrollmentForm = ({open , setOpen}) => {
   const [currency, setCurrency] = useState('EUR');
   const [currency_two, setCurrency_two] = useState('EUR');
+  const [selectedProductValue, setSelectedProductValue] = useState('');
+  const [selectedSubValue, setSelectedSubValue] = useState('');
   const [inputs, setInputs] = useState([])
   const router = useRouter()
+  const [uploadedFiles, setUploadedFiles] = useState({
+    file1: [],
+    file2: [],
+    file3: [],
+    file4: [],
+    file5: [],
+    file6: [],
+    file7: [],
+});
+
+const handleFilesUpload = (field, files) => {
+    setUploadedFiles({
+        ...uploadedFiles,
+        [field]: files
+    });
+    console.log(uploadedFiles)
+};
+
 
 
   const handleChange = (event) => {
@@ -48,10 +69,15 @@ const EnrollmentForm = () => {
 
   const [value, setValue] = useState(30);
   return (
-    <Box>
-      <Grid item xs={6} position={"relative"}  >
-        <Card sx={{ justifyItems: "center", paddingY: '50px', display: 'flex', bgcolor: "#347362", flexDirection: 'column', alignItems: 'center', height: "90%" }}>
-          <Typography variant='h3' paddingBottom={2} color={"#ffffff"}>Enrollment</Typography>
+    <Dialog open={open} maxWidth={"md"}  fullWidth onClose={() =>{setOpen(false)}}>
+      <Grid item xs={12} position={"relative"} overflow={"hidden"} sx={{padding:5}}  >
+          <Box display={"flex" } paddingBottom={2} justifyContent={"space-between"} alignItems={"center"}  >
+          <Typography variant='h3' >Enrollment Form</Typography>
+          <IconButton onClick={() =>{setOpen(false)}} >
+            <Cancel fontSize='large'/>
+          </IconButton>
+          </Box>
+        <Card sx={{ justifyItems: "center",overflowY:"scroll", paddingBottom: '50px', display: 'flex', bgcolor: "#347362", flexDirection: 'column',alignItems: 'center', height: "500px" }}>
           <Divider />
           <CardContent sx={{ display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 2, alignItems: "center", width: "100%" }}>
             <Box sx={{ display: "flex", width: "100%", gap: 2 }}>
@@ -196,8 +222,7 @@ const EnrollmentForm = () => {
                 id="outlined-select-currency"
                 select
                 label="Number of states present"
-                // value={currency}
-                // onChange={handleChange}
+                value={currency}
                 sx={{ bgcolor: "white" }}
                 variant='filled'
                 name="currency1"
@@ -214,8 +239,6 @@ const EnrollmentForm = () => {
                 id="outlined-select-currency"
                 select
                 label="Number of Branches"
-                // value={currency_two}
-                // onChange={handleChange_tow}
                 sx={{ bgcolor: "white" }}
                 variant='filled'
                 name="currency"
@@ -229,27 +252,104 @@ const EnrollmentForm = () => {
               </TextField>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "space-between", width: "100%", gap: 2 }}>
-              <Component componentName='Product Sagement' />
-              <Component componentName='Sub Product' />
+              <TextField
+                select
+                fullWidth
+                id="Product-Sagement"
+                label="Product Sagement"
+                placeholder="Product Sagement"
+                sx={{ bgcolor: "white" }}
+                variant='filled'
+                name="currency"
+                value={selectedProductValue}
+                onChange={(e)=>{
+                  setSelectedProductValue(e.target.value)
+                }}
+              >
+                  <MenuItem value="Unsecured Business Loan">
+                  Unsecured Business Loan
+                  </MenuItem>
+              </TextField>
+              <TextField
+                select
+                fullWidth
+                id="Sub-Sagement"
+                label="Sub Product"
+                placeholder="Sub Product"
+                sx={{ bgcolor: "white" }}
+                variant='filled'
+                name="currency"
+                value={selectedSubValue}
+                onChange={(e)=>{
+                  setSelectedSubValue(e.target.value)
+                }}
+              >
+                  <MenuItem value="Term Loan">
+                  Term Loan
+                  </MenuItem>
+              </TextField>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "space-between", width: "100%", gap: 2 }}>
-              <Component componentName="Borrower Type" />
-              <Component componentName="Repayment Type" />
+              <TextField
+                select
+                fullWidth
+                id="Borrower-Type"
+                label="Borrower Type"
+                placeholder="Borrower Type"
+                sx={{ bgcolor: "white" }}
+                variant='filled'
+                name="currency"
+                value={selectedSubValue}
+                onChange={(e)=>{
+                  setSelectedSubValue(e.target.value)
+                }}
+              >
+                  <MenuItem value="MSME">
+                  MSME
+                  </MenuItem>
+                  <MenuItem value="Self Employed">
+                  Self Employed
+                  </MenuItem>
+                  <MenuItem value="Start Up">
+                  Start Up
+                  </MenuItem>
+              </TextField>
+              <TextField
+                select
+                fullWidth
+                id="Repayment-Type"
+                label="Repayment Type"
+                placeholder="Repayment Type"
+                sx={{ bgcolor: "white" }}
+                variant='filled'
+                name="currency"
+                value={selectedSubValue}
+                onChange={(e)=>{
+                  setSelectedSubValue(e.target.value)
+                }}
+              >
+                  <MenuItem value="EMI">
+                  EMI
+                  </MenuItem>
+                  <MenuItem value="EFI">
+                  EFI
+                  </MenuItem>
+              </TextField>
             </Box>
             <Box sx={{ display: "flex", justifyContent: "space-between", width: "100%", gap: 2 }}>
-              <Upload uploadName="Corporate Deck" />
-              <Upload uploadName="Format Portfolio Cutt" />
+              <Upload id={"CorporateDeck"} onFilesUpload={(files) => handleFilesUpload('file1', files)} label="Corporate Deck" />
+              <Upload id={"FormatPortfolioCutt"} onFilesUpload={(files) => handleFilesUpload('file2', files)} label="Format Portfolio Cutt" />
             </Box>
             <Box sx={{ display: "flex", justifyContent: "space-between", width: "100%", gap: 2 }}>
-              <Upload uploadName="Financials Last 2 Years" />
-              <Upload uploadName="Last 6 Months GST Turnover (inr crores)" />
+              <Upload id={3} onFilesUpload={(files) => handleFilesUpload('file3', files)} label="Financials Last 2 Years" />
+              <Upload id={4} onFilesUpload={(files) => handleFilesUpload('file4', files)} label="Last 6 Months GST Turnover (inr crores)" />
             </Box>
             <Box sx={{ display: "flex", justifyContent: "space-between", width: "100%", gap: 2 }}>
-              <Upload uploadName="Borrower Journey (video/deck)" />
-              <Upload uploadName="Product/Credit Notes" />
+              <Upload id={5} onFilesUpload={(files) => handleFilesUpload('file5', files)} label="Borrower Journey (video/deck)" />
+              <Upload id={6} onFilesUpload={(files) => handleFilesUpload('file6', files)} label="Product/Credit Notes" />
             </Box>
             <Box sx={{ display: "flex", justifyContent: "space-between", width: "100%", gap: 2 }}>
-              <Upload uploadName="KYCs & RBI Certificates" />
+              <Upload id={7} onFilesUpload={(files) => handleFilesUpload('file7', files)} label="KYCs & RBI Certificates" />
             </Box>
 
           </CardContent>
@@ -258,7 +358,7 @@ const EnrollmentForm = () => {
           </Button>
         </Card>
       </Grid>
-    </Box>
+    </Dialog>
   )
 }
 

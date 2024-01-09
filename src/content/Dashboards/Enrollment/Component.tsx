@@ -64,37 +64,56 @@ const Component = (props) => {
 }
 export default Component
 
-export const Upload = (props) =>{
-    const [imageUrl , setImageUrl] = useState(null);
-    
-    const handleFileUpload = (event) =>{
-        const file = event.target.files[0];
-        const reader = new FileReader();
+export const Upload = ({ 
+  label = 'Upload Files', 
+  accept = 'image/*', 
+  labelWidth = '80%', 
+  displayHeight = '50px',
+  displayWidth = '100%',
+  onFilesUpload,
+  id 
+}) => {
+  const [imageUrls, setImageUrls] = useState([]);
 
-        reader.onloadend = () =>{
-            setImageUrl(reader.result);
-        };
-        reader.readAsDataURL(file);
-    }
+  const handleFileUpload = (event) => {
+      const files = event.target.files;
+      const urls = [];
 
-    return(
-        <FormControl variant="filled" sx={{bgcolor:"whitesmoke",}} fullWidth>
-      <Stack alignItems="center" height={"50px"} width={"100%"} >
-        <label htmlFor="upload-image" style={{height:"", width:"80%" }}>
-            <input
-            id="upload-image"
-            accept="image/*"
-            type="file"
-            style={{display:'none', backgroundColor:"red"}}
-            onChange={handleFileUpload}
-            placeholder='Name'
-            />
-        <Box width={"100%"} sx={{justifyContent:"space-between",display:"flex",height:"100%" }} >
-            {props.uploadName}
-            {imageUrl && <img src={imageUrl} alt="Uploaded Image" height={30} />}
-        </Box>
-        </label>
-      </Stack>
-    </FormControl>
-    )
+      Array.from(files).forEach(file => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+              urls.push(reader.result);
+              if (urls.length === files.length) {
+                  setImageUrls(urls);
+                  if (onFilesUpload) {
+                      onFilesUpload(urls); // Pass the array of URLs to a parent component or perform some action.
+                  }
+              }
+          };
+          reader.readAsDataURL(file);
+      });
+  }
+
+  return (
+      <FormControl variant="filled" sx={{ bgcolor: "whitesmoke" }} fullWidth>
+          <Stack alignItems="center" height={displayHeight} width={displayWidth}>
+              <label htmlFor={"upload-files"+id} style={{ height: "", width: labelWidth }}>
+                  <input
+                      id={"upload-files"+id}
+                      accept={accept}
+                      type="file"
+                      multiple
+                      style={{ display: 'none', backgroundColor: "red" }}
+                      onChange={handleFileUpload}
+                  />
+                  <Box width="100%" sx={{ justifyContent: "space-between", display: "flex", height: "100%" }}>
+                      {label}
+                      {imageUrls.map((url, index) => (
+                          <img key={index} src={url} alt={`Uploaded Image ${index}`} height={30} />
+                      ))}
+                  </Box>
+              </label>
+          </Stack>
+      </FormControl>
+  );
 }

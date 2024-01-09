@@ -1,17 +1,28 @@
 import { Box, Button, IconButton, Tooltip, Typography } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import EditTwoToneIcon from '@mui/icons-material/EditTwoTone';
 import Label from '@/components/Label';
+import EnrollmentForm from '@/content/Dashboards/Enrollment/EnrollmentForm';
 
 const EnrollmentDetail = () => {
+  const [open , setOpen] = useState<boolean>(false);
   return (
     <Box width={"100%"}>
-        <Typography gutterBottom variant="h3" textAlign={"center"} width={"100%"} py={2} >
+      <EnrollmentForm open={open} setOpen={setOpen}/>
+      <Button variant='contained' onClick={()=>{
+        setOpen(true)
+      }} >
+        Fill Enrollment
+      </Button>
+        <Typography gutterBottom variant="h3" textAlign={"center"} display={"flex"} justifyContent={"space-between"} width={"100%"} py={2} >
           Enrollment Detail
         <Tooltip title="Edit Enrollment" arrow>
                       <IconButton
                         color="inherit"
                         size="small"
+                        onClick={()=>{
+                          setOpen(true)
+                        }}
                       >
                         <EditTwoToneIcon fontSize="small" />
                       </IconButton>
