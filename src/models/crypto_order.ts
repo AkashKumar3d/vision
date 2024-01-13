@@ -1,4 +1,8 @@
-export type CryptoOrderStatus = 'completed' | 'pending' | 'failed'| 'In Progress';
+export type CryptoOrderStatus =
+  | 'completed'
+  | 'pending'
+  | 'failed'
+  | 'In Progress';
 
 export interface CryptoOrder {
   id: string;

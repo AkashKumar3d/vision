@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 import NextLink from 'next/link';
 
-import { FaUserAlt } from "react-icons/fa";
+import { FaUserAlt } from 'react-icons/fa';
 
 import {
   Avatar,
@@ -62,8 +62,8 @@ const UserBoxDescription = styled(Typography)(
 );
 
 function HeaderUserbox() {
-  const [name, setname] = useState()
-  const [enroltype, setenroltype] = useState()
+  const [name, setname] = useState();
+  const [enroltype, setenroltype] = useState();
   const user = {
     name: 'Abhishek Jha',
     avatar: '/static/images/avatars/3.jpg',
@@ -82,28 +82,30 @@ function HeaderUserbox() {
   };
 
   const getLocalStorage = () => {
-    let enrollType: any = typeof window != undefined ? window.localStorage?.getItem('enrolType') : ""
-    let userData = !!window ? JSON.parse(localStorage.getItem('user-profile')) : ""
-    setname(userData.Name)
-    setenroltype(enrollType)
-  }
+    let enrollType: any =
+      typeof window != undefined
+        ? window.localStorage?.getItem('enrolType')
+        : '';
+    let userData = !!window
+      ? JSON.parse(localStorage.getItem('user-profile'))
+      : '';
+    setname(userData.Name);
+    setenroltype(enrollType);
+  };
 
   useEffect(() => {
-    getLocalStorage()
-  }, [])
+    getLocalStorage();
+  }, []);
   return (
     <>
       <UserBoxButton color="secondary" ref={ref} onClick={handleOpen}>
         {/* <Avatar variant="rounded" alt={user.name} src={user.avatar} /> */}
         <Avatar variant="rounded" alt={user.name} src={<FaUserAlt />} />
-        
-        
+
         <Hidden mdDown>
           <UserBoxText>
             <UserBoxLabel variant="body1">{name}</UserBoxLabel>
-            <UserBoxDescription variant="body2">
-              {enroltype}
-            </UserBoxDescription>
+            <UserBoxDescription variant="body2">{enroltype}</UserBoxDescription>
           </UserBoxText>
         </Hidden>
         <Hidden smDown>
@@ -127,9 +129,7 @@ function HeaderUserbox() {
           <Avatar variant="rounded" alt={user.name} src={user.avatar} />
           <UserBoxText>
             <UserBoxLabel variant="body1">{name}</UserBoxLabel>
-            <UserBoxDescription variant="body2">
-              {enroltype}
-            </UserBoxDescription>
+            <UserBoxDescription variant="body2">{enroltype}</UserBoxDescription>
           </UserBoxText>
         </MenuUserBox>
         <Divider sx={{ mb: 0 }} />

@@ -51,7 +51,7 @@ const EnrollmentForm = ({ open, setOpen,formData={}, setFormData }) => {
 
   const handleEnrollSubmit = async () => {
     try {
-      const id = JSON.parse(localStorage.getItem("user-id"))
+      const id = JSON.parse(localStorage.getItem('user-id'));
       let obj = {
         enrollment: inputs,
         enrollstatus: "yes",
@@ -372,4 +372,4 @@ const EnrollmentForm = ({ open, setOpen,formData={}, setFormData }) => {
   )
 }
 
-export default EnrollmentForm
+export default EnrollmentForm;

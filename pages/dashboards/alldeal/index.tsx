@@ -9,7 +9,7 @@ import Table from '@/content/Dashboards/AllDeal/Table';
 function DashboardAllDeal() {
   return (
     <div>
-        <Head>
+      <Head>
         <title>All Deal</title>
       </Head>
       <PageTitleWrapper>
@@ -24,9 +24,9 @@ function DashboardAllDeal() {
           spacing={4}
         >
           <Grid item xs={12} lg={12}>
-            < Table />
+            <Table />
           </Grid>
-          </Grid>
+        </Grid>
       </Container>
     </div>
   );

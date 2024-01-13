@@ -140,9 +140,9 @@ const SubMenuWrapper = styled(Box)(
                 background: ${theme.colors.alpha.trueWhite[100]};
                 opacity: 0;
                 transition: ${theme.transitions.create([
-    'transform',
-    'opacity'
-  ])};
+                  'transform',
+                  'opacity'
+                ])};
                 width: 6px;
                 height: 6px;
                 transform: scale(0);
@@ -169,20 +169,23 @@ const SubMenuWrapper = styled(Box)(
 
 function SidebarMenu() {
   const { closeSidebar } = useContext(SidebarContext);
-  const [ enroltype , setenroltype]=useState()
+  const [enroltype, setenroltype] = useState();
   const router = useRouter();
   const currentRoute = router.pathname;
 
   const getLocalStorage = () => {
-    let enrollType: any = typeof window != undefined ? window.localStorage?.getItem('enrolType') : ""
-   
-    setenroltype(enrollType)
-  }
+    let enrollType: any =
+      typeof window != undefined
+        ? window.localStorage?.getItem('enrolType')
+        : '';
+
+    setenroltype(enrollType);
+  };
 
   useEffect(() => {
-   getLocalStorage()
-  }, [])
-  
+    getLocalStorage();
+  }, []);
+
   return (
     <>
       <MenuWrapper>
@@ -231,28 +234,25 @@ function SidebarMenu() {
                 </NextLink>
               </ListItem>
 
-
-{
-
-enroltype=="Demand" && 
-   <ListItem component="div">
-   <NextLink href="/dashboards/createdeal" passHref>
-     <Button
-       className={
-         currentRoute === '/dashboards/createdeal' ? 'active' : ''
-       }
-       disableRipple
-       component="a"
-       onClick={closeSidebar}
-       startIcon={<AnalyticsIcon />}
-     >
-       Create Deal
-     </Button>
-   </NextLink>
- </ListItem>
-
-}
-             
+              {enroltype == 'Demand' && (
+                <ListItem component="div">
+                  <NextLink href="/dashboards/createdeal" passHref>
+                    <Button
+                      className={
+                        currentRoute === '/dashboards/createdeal'
+                          ? 'active'
+                          : ''
+                      }
+                      disableRipple
+                      component="a"
+                      onClick={closeSidebar}
+                      startIcon={<AnalyticsIcon />}
+                    >
+                      Create Deal
+                    </Button>
+                  </NextLink>
+                </ListItem>
+              )}
 
               {/* <ListItem component="div">
                 <NextLink href="/dashboards/enrollment" passHref>
@@ -336,9 +336,7 @@ enroltype=="Demand" &&
                 <NextLink href="/applications/messenger" passHref>
                   <Button
                     className={
-                      currentRoute === '/management/messenger'
-                        ? 'active'
-                        : ''
+                      currentRoute === '/management/messenger' ? 'active' : ''
                     }
                     disableRipple
                     component="a"

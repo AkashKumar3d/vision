@@ -16,9 +16,7 @@ const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
         height: '100%'
       }}
     >
-      <UserProvider>
-        {children}
-      </UserProvider>
+      <UserProvider>{children}</UserProvider>
     </Box>
   );
 };

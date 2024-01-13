@@ -42,20 +42,19 @@ const OverviewWrapper = styled(Box)(
 
 function Overview() {
   return (
-    <OverviewWrapper sx={{ position:"relative"}}>
-      
+    <OverviewWrapper sx={{ position: 'relative' }}>
       <Head>
         <title>Vision LogIn/SignIn</title>
       </Head>
-          <Box display="flex" alignItems="center">
-            <Box
-              display="flex"
-              alignItems="center"
-              justifyContent="space-between"
-              flex={1}
-            >
-              <Box display={"flex"}>
-                {/* <Grid>
+      <Box display="flex" alignItems="center">
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          flex={1}
+        >
+          <Box display={'flex'}>
+            {/* <Grid>
                   <Documentation/>
                 </Grid>
                 <Button
@@ -66,7 +65,7 @@ function Overview() {
                 >
                   Register
                 </Button> */}
-                {/* <Button
+            {/* <Button
                   component={Link}
                   href="/api/auth/logout"
                   variant="contained"
@@ -74,12 +73,11 @@ function Overview() {
                 >
                   Logout
                 </Button> */}
-              </Box>
-            </Box>
           </Box>
-      <Box position={"relative"} sx={{opacity:"0.98",width:"100%"}}>
-        <LoginCard/>
-        
+        </Box>
+      </Box>
+      <Box position={'relative'} sx={{ opacity: '0.98', width: '100%' }}>
+        <LoginCard />
       </Box>
     </OverviewWrapper>
   );

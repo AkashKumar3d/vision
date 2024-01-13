@@ -190,7 +190,6 @@ function StatusComingSoon() {
         </TopWrapper>
       </MainContent>
     </>
-   
   );
 }
 

@@ -1,4 +1,4 @@
-"use client"
+'use client';
 import { FC, ChangeEvent, useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import numeral from 'numeral';
@@ -39,8 +39,6 @@ import UpdateForm from './UpdateForm';
 import { AddBox, Search } from '@mui/icons-material';
 import { TooltipWrapper } from '@/components/LogoSign';
 import axios from 'axios';
-
-
 
 interface CreatedDealTableProps {
   className?: string;
@@ -100,7 +98,6 @@ const applyPagination = (
 };
 
 const CreatedDealTable: FC<CreatedDealTableProps> = ({ cryptoOrders }) => {
-
   const [selectedCryptoOrders, setSelectedCryptoOrders] = useState<string[]>(
     []
   );
@@ -108,11 +105,11 @@ const CreatedDealTable: FC<CreatedDealTableProps> = ({ cryptoOrders }) => {
   const [page, setPage] = useState<number>(0);
   const [limit, setLimit] = useState<number>(5);
   const [open, setOpen] = useState<boolean>(false);
-  const [deletestatus, setDeletestatus] = useState<boolean>(false)
+  const [deletestatus, setDeletestatus] = useState<boolean>(false);
   const [openNew, setOpenNew] = useState<boolean>(false);
   const [selectedIndex, setSelectedId] = useState<number>(0);
-  const [createdeals, setCreatedeals] = useState<any>([])
-  const [isUpdate, setIsUpadte]=useState<any>([])
+  const [createdeals, setCreatedeals] = useState<any>([]);
+  const [isUpdate, setIsUpadte] = useState<any>([]);
   const [filters, setFilters] = useState<Filters>({
     status: null
   });
@@ -138,7 +135,6 @@ const CreatedDealTable: FC<CreatedDealTableProps> = ({ cryptoOrders }) => {
       id: 'inprogress',
       name: 'In Progress'
     }
-
   ];
 
   const handleStatusChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -188,21 +184,15 @@ const CreatedDealTable: FC<CreatedDealTableProps> = ({ cryptoOrders }) => {
     setLimit(parseInt(event.target.value));
   };
 
-
-  const [paginatedCryptoOrders, setpaginatedCryptoOrders] = useState([])
-  const [filteredCryptoOrders, setfilteredCryptoOrders] = useState([])
+  const [paginatedCryptoOrders, setpaginatedCryptoOrders] = useState([]);
+  const [filteredCryptoOrders, setfilteredCryptoOrders] = useState([]);
 
   useEffect(() => {
-    const filter_data = applyFilters(cryptoOrders, filters)
+    const filter_data = applyFilters(cryptoOrders, filters);
     setfilteredCryptoOrders(filter_data);
-    setpaginatedCryptoOrders(applyPagination(
-      filter_data,
-      page,
-      limit
-    ));
+    setpaginatedCryptoOrders(applyPagination(filter_data, page, limit));
     // console.log(filter_data);
-
-  }, [cryptoOrders])
+  }, [cryptoOrders]);
   const selectedSomeCryptoOrders =
     selectedCryptoOrders.length > 0 &&
     selectedCryptoOrders.length < cryptoOrders.length;
@@ -210,7 +200,7 @@ const CreatedDealTable: FC<CreatedDealTableProps> = ({ cryptoOrders }) => {
     selectedCryptoOrders.length === cryptoOrders.length;
   const theme = useTheme();
 
-  const [search, setSearch] = useState()
+  const [search, setSearch] = useState();
 
   //   const SearchData = (value1) =>{
   //     return cryptoOrders.filter((val)=>{
@@ -234,39 +224,50 @@ const CreatedDealTable: FC<CreatedDealTableProps> = ({ cryptoOrders }) => {
     const millisecondsPart = date.getMilliseconds();
 
     // Format the date as a string
-    const formattedDate = `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day} ${hours}:${minutes}:${seconds}.${millisecondsPart}`;
+    const formattedDate = `${year}-${month < 10 ? '0' + month : month}-${
+      day < 10 ? '0' + day : day
+    } ${hours}:${minutes}:${seconds}.${millisecondsPart}`;
 
     return formattedDate;
   }
 
-  const handleDelete = async (id:any ) => {
-    console.log(`deleting ${id}`)
+  const handleDelete = async (id: any) => {
+    console.log(`deleting ${id}`);
     try {
-      await axios.delete(`http://localhost:3000/api/deal?id=${id}`)
-      setDeletestatus(!deletestatus)
-      alert("Deals deleted sucessfully")
+      await axios.delete(`http://localhost:3000/api/deal?id=${id}`);
+      setDeletestatus(!deletestatus);
+      alert('Deals deleted sucessfully');
     } catch (error) {
-      alert("deals s note deleted ")
+      alert('deals s note deleted ');
     }
-
-  }
+  };
 
   useEffect(() => {
     const fetchRecentDeals = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/deal")
-        console.log(res, "create deas response")
-        setCreatedeals(res?.data)
+        const res = await axios.get('http://localhost:3000/api/deal');
+        console.log(res, 'create deas response');
+        setCreatedeals(res?.data);
       } catch (err) {
-        console.log(err)
+        console.log(err);
       }
-    }
-    fetchRecentDeals()
-  }, [deletestatus])
+    };
+    fetchRecentDeals();
+  }, [deletestatus]);
   return (
     <>
-      <EditForm data={cryptoOrders} open={open} setOpen={setOpen} selectedIndex={selectedIndex} />
-      <UpdateForm update={isUpdate} openNew={openNew} setOpenNew={setOpenNew}  setList={() => { }} />
+      <EditForm
+        data={cryptoOrders}
+        open={open}
+        setOpen={setOpen}
+        selectedIndex={selectedIndex}
+      />
+      <UpdateForm
+        update={isUpdate}
+        openNew={openNew}
+        setOpenNew={setOpenNew}
+        setList={() => {}}
+      />
       <Card>
         {selectedBulkActions && (
           <Box flex={1} p={2}>
@@ -276,7 +277,12 @@ const CreatedDealTable: FC<CreatedDealTableProps> = ({ cryptoOrders }) => {
         {!selectedBulkActions && (
           <CardHeader
             action={
-              <Box width={"100%"} display={"flex"} alignItems={"center"} gap={2} >
+              <Box
+                width={'100%'}
+                display={'flex'}
+                alignItems={'center'}
+                gap={2}
+              >
                 <IconButton>
                   <AddBox />
                 </IconButton>
@@ -284,10 +290,10 @@ const CreatedDealTable: FC<CreatedDealTableProps> = ({ cryptoOrders }) => {
                   {search}
                   <TextField
                     onChange={(e) => {
-                      setSearch(e.target.value)
+                      setSearch(e.target.value);
                     }}
                     label="Search"
-                    variant='outlined'
+                    variant="outlined"
                     InputProps={{
                       startAdornment: (
                         <InputAdornment>
@@ -330,9 +336,7 @@ const CreatedDealTable: FC<CreatedDealTableProps> = ({ cryptoOrders }) => {
                     onChange={handleSelectAllCryptoOrders}
                   />
                 </TableCell>
-                <TableCell
-
-                >Deal Creator</TableCell>
+                <TableCell>Deal Creator</TableCell>
                 <TableCell>Product</TableCell>
                 <TableCell>Date</TableCell>
                 <TableCell align="right">Amount</TableCell>
@@ -342,147 +346,135 @@ const CreatedDealTable: FC<CreatedDealTableProps> = ({ cryptoOrders }) => {
             </TableHead>
 
             <TableBody>
-              {
-                createdeals?.map((a, index) => (
-
-                  <TableRow
-                    hover
-                    key={index}
+              {createdeals?.map((a, index) => (
+                <TableRow
+                  hover
+                  key={index}
                   // selected={isCryptoOrderSelected}
-                  >
-                    <TableCell padding="checkbox">
-                      <Checkbox
-                        color="primary"
+                >
+                  <TableCell padding="checkbox">
+                    <Checkbox
+                      color="primary"
                       // checked={isCryptoOrderSelected}
                       // onChange={(event: ChangeEvent<HTMLInputElement>) =>
                       //   handleSelectOneCryptoOrder(event, cryptoOrder.id)
                       // }
                       // value={isCryptoOrderSelected}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <Typography
-                        variant="body1"
-                        fontWeight="bold"
-                        color="text.primary"
-                        gutterBottom
-                        noWrap
-                      >
-                        {/* {createdeals?.map((a) => a?.createdBy)} */}
-                        {a?.createdBy}
-
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary" noWrap>
-                        { }
-                      </Typography>
-                    </TableCell>
-                    <TableCell>
-                      <Typography
-                        variant="body1"
-                        fontWeight="bold"
-                        color="text.primary"
-                        gutterBottom
-                        noWrap
-                      >
-                        {a?.orderID}
-                      </Typography>
-                    </TableCell>
-                    <TableCell>
-                      <Typography
-                        variant="body1"
-                        fontWeight="bold"
-                        color="text.primary"
-                        gutterBottom
-                        noWrap
-                      >
-
-                        {
-                          convertMillisecondsToDate(a?.orderDate)
-                        }
-                        {/* {format(a?.orderDate? a?.orderDate :"" , 'MMMM dd yyyy')} */}
-                      </Typography>
-                    </TableCell>
-                    <TableCell align="right">
-                      <Typography
-                        variant="body1"
-                        fontWeight="bold"
-                        color="text.primary"
-                        gutterBottom
-                        noWrap
-                      >
-                        {/* {cryptoOrder.amountCrypto} */}
-                        {a?.cryptoCurrency}
-
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary" noWrap>
-                        {/* {numeral(cryptoOrder.amount).format(
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <Typography
+                      variant="body1"
+                      fontWeight="bold"
+                      color="text.primary"
+                      gutterBottom
+                      noWrap
+                    >
+                      {/* {createdeals?.map((a) => a?.createdBy)} */}
+                      {a?.createdBy}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" noWrap>
+                      {}
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography
+                      variant="body1"
+                      fontWeight="bold"
+                      color="text.primary"
+                      gutterBottom
+                      noWrap
+                    >
+                      {a?.orderID}
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <Typography
+                      variant="body1"
+                      fontWeight="bold"
+                      color="text.primary"
+                      gutterBottom
+                      noWrap
+                    >
+                      {convertMillisecondsToDate(a?.orderDate)}
+                      {/* {format(a?.orderDate? a?.orderDate :"" , 'MMMM dd yyyy')} */}
+                    </Typography>
+                  </TableCell>
+                  <TableCell align="right">
+                    <Typography
+                      variant="body1"
+                      fontWeight="bold"
+                      color="text.primary"
+                      gutterBottom
+                      noWrap
+                    >
+                      {/* {cryptoOrder.amountCrypto} */}
+                      {a?.cryptoCurrency}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" noWrap>
+                      {/* {numeral(cryptoOrder.amount).format(
                           `${cryptoOrder.currency}0,0.00`
                         )} */}
-                      </Typography>
-                    </TableCell>
-                    <TableCell align="right">
-                      {a?.status}
-                    </TableCell>
-                    <TableCell align="right">
-                      <Tooltip title="Order Information" arrow>
-                        <IconButton
-                          // onClick={() => {
-                          //   setOpen((pre) => !pre);
-                          //   setSelectedId(indexOfElementInList)
-                          // }}
-                          sx={{
-                            '&:hover': {
-                              background: theme.colors.info.lighter
-                            },
-                            color: theme.palette.info.main
-                          }}
-                          color="inherit"
-                          size="small"
-                        >
-                          <PermIdentityTwoToneIcon fontSize="small" />
-                        </IconButton>
-                      </Tooltip>
-                      <Tooltip title="Edit Order" arrow>
-                        <IconButton
-                          onClick={() => {
-                            setOpenNew((pre) => !pre);
-                            // setSelectedId(a)
-                            setIsUpadte(a)
-                          }}
-                          sx={{
-                            '&:hover': {
-                              background: theme.colors.primary.lighter
-                            },
-                            color: theme.palette.primary.main
-                          }}
-                          color="inherit"
-                          size="small"
-                        >
-                          <EditTwoToneIcon fontSize="small" />
-                        </IconButton>
-                      </Tooltip>
-                      <Tooltip title="Delete Order" arrow>
-                        <IconButton
-                          sx={{
-                            '&:hover': { background: theme.colors.error.lighter },
-                            color: theme.palette.error.main
-                          }}
-                          color="inherit"
-                          size="small"
-                          onClick={()=>{
-                            const id=a?._id
-                            handleDelete(id)
-                          }}
-                        >
-                          <DeleteTwoToneIcon fontSize="small" />
-                        </IconButton>
-                      </Tooltip>
-                    </TableCell>
-                  </TableRow>
-                ))
-              }
-
-
+                    </Typography>
+                  </TableCell>
+                  <TableCell align="right">{a?.status}</TableCell>
+                  <TableCell align="right">
+                    <Tooltip title="Order Information" arrow>
+                      <IconButton
+                        // onClick={() => {
+                        //   setOpen((pre) => !pre);
+                        //   setSelectedId(indexOfElementInList)
+                        // }}
+                        sx={{
+                          '&:hover': {
+                            background: theme.colors.info.lighter
+                          },
+                          color: theme.palette.info.main
+                        }}
+                        color="inherit"
+                        size="small"
+                      >
+                        <PermIdentityTwoToneIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Edit Order" arrow>
+                      <IconButton
+                        onClick={() => {
+                          setOpenNew((pre) => !pre);
+                          // setSelectedId(a)
+                          setIsUpadte(a);
+                        }}
+                        sx={{
+                          '&:hover': {
+                            background: theme.colors.primary.lighter
+                          },
+                          color: theme.palette.primary.main
+                        }}
+                        color="inherit"
+                        size="small"
+                      >
+                        <EditTwoToneIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Delete Order" arrow>
+                      <IconButton
+                        sx={{
+                          '&:hover': { background: theme.colors.error.lighter },
+                          color: theme.palette.error.main
+                        }}
+                        color="inherit"
+                        size="small"
+                        onClick={() => {
+                          const id = a?._id;
+                          handleDelete(id);
+                        }}
+                      >
+                        <DeleteTwoToneIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
+                  </TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
         </TableContainer>

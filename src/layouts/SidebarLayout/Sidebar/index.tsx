@@ -35,13 +35,13 @@ function Sidebar() {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
   const closeSidebar = () => toggleSidebar();
   const theme = useTheme();
-  const router = useRouter()
+  const router = useRouter();
 
   const handleLogout = () => {
-    console.log('into logout')
-    localStorage.removeItem('email')
-    router.push('/')
-  }
+    console.log('into logout');
+    localStorage.removeItem('email');
+    router.push('/');
+  };
 
   return (
     <>

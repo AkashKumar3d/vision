@@ -105,7 +105,6 @@ function Hero() {
         container
       >
         <Grid item md={10} lg={8} mx="auto">
-          
           <Button
             // component={Link}
             href="/dashboards/crypto"

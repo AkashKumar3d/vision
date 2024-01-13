@@ -1,26 +1,25 @@
-import { Box, Button, Grid, Link, TextField } from '@mui/material'
-import React from 'react'
-import { useState } from "react";
-import { useRouter } from "next/router";
-import axios from 'axios'
-import RingLoader from "react-spinners/RingLoader"
+import { Box, Button, Grid, Link, TextField } from '@mui/material';
+import React from 'react';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import axios from 'axios';
+import RingLoader from 'react-spinners/RingLoader';
 // import FadeLoader from 'react-spinners'
 
 const EmailLogin = () => {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
-  const [data, setData] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [data, setData] = useState('');
+  const [loading, setLoading] = useState(false);
   const [showOtpField, setShowOtpField] = useState(false);
-  console.log(otp, data)
+  console.log(otp, data);
 
   const handleAction = async () => {
-
     if (showOtpField) {
       if (otp === data) {
         router.push('/enrollment');
-        localStorage.setItem('email', email)
+        localStorage.setItem('email', email);
       } else {
         alert('Please enter a valid OTP');
       }
@@ -75,7 +74,7 @@ const EmailLogin = () => {
         <TextField
           label="Enter Email"
           fullWidth
-          type='email'
+          type="email"
           margin="normal"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -88,11 +87,17 @@ const EmailLogin = () => {
         style={{ marginTop: '16px' }}
         onClick={handleAction}
       >
-        {showOtpField && !loading ? "Verify OTP" : loading ? <RingLoader color="#fff" size={30} /> : "Send OTP"}
+        {showOtpField && !loading ? (
+          'Verify OTP'
+        ) : loading ? (
+          <RingLoader color="#fff" size={30} />
+        ) : (
+          'Send OTP'
+        )}
         {/* <RingLoader color="#fff" size={30} /> */}
       </Button>
     </Box>
-  )
-}
+  );
+};
 
-export default EmailLogin
+export default EmailLogin;

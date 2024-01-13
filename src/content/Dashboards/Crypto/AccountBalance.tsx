@@ -18,7 +18,7 @@ import TrendingUp from '@mui/icons-material/TrendingUp';
 import Text from 'src/components/Text';
 import { Chart } from 'src/components/Chart';
 import type { ApexOptions } from 'apexcharts';
-import { FcDebt } from "react-icons/fc";
+import { FcDebt } from 'react-icons/fc';
 
 const AvatarSuccess = styled(Avatar)(
   ({ theme }) => `
@@ -39,10 +39,11 @@ const ListItemAvatarWrapper = styled(ListItemAvatar)(
   margin-right: ${theme.spacing(1)};
   padding: ${theme.spacing(0.5)};
   border-radius: 60px;
-  background: ${theme.palette.mode === 'dark'
+  background: ${
+    theme.palette.mode === 'dark'
       ? theme.colors.alpha.trueWhite[30]
       : alpha(theme.colors.alpha.black[100], 0.07)
-    };
+  };
 
   img {
     background: ${theme.colors.alpha.trueWhite[100]};
@@ -125,7 +126,7 @@ function AccountBalance() {
     }
   };
 
-  const chartSeries = [10, 20, 45,25];
+  const chartSeries = [10, 20, 45, 25];
 
   return (
     // analytics of deals
@@ -470,7 +471,6 @@ function AccountBalance() {
                         src="/static/images/placeholders/logo/ripple.png"
                       /> */}
                       <FcDebt style={{ width: '2rem', height: '2rem' }} />
-
                     </ListItemAvatarWrapper>
                     <ListItemText
                       primary="COl"
@@ -495,7 +495,6 @@ function AccountBalance() {
                         src="/static/images/placeholders/logo/cardano.png"
                       /> */}
                       <FcDebt style={{ width: '2rem', height: '2rem' }} />
-
                     </ListItemAvatarWrapper>
                     <ListItemText
                       primary="BCP"
@@ -520,7 +519,6 @@ function AccountBalance() {
                         src="/static/images/placeholders/logo/cardano.png"
                       /> */}
                       <FcDebt style={{ width: '2rem', height: '2rem' }} />
-
                     </ListItemAvatarWrapper>
                     <ListItemText
                       primary="TML"
@@ -538,7 +536,6 @@ function AccountBalance() {
                       <Text color="success">00 CRS</Text>
                     </Box>
                   </ListItem>
-
                 </List>
               </Grid>
             </Grid>

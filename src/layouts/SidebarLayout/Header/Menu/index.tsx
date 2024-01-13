@@ -135,7 +135,6 @@ function HeaderMenu() {
         <MenuItem sx={{ px: 3 }} href="/components/tabs">
           Supply
         </MenuItem>
-        
       </Menu>
     </>
   );
