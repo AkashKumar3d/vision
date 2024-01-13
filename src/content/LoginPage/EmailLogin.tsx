@@ -27,9 +27,9 @@ const EmailLogin = () => {
     } else {
       if (email.trim() !== '') {
         // sendEmail(email);
-        let response1: any = await axios.get(`http://localhost:3000/api/users?email=${email}`)
+        // let response1: any = await axios.get(`http://localhost:3000/api/users?email=${email}`)
         setLoading(true)
-        if (response1.data.data.length != 0) {
+        // if (response1.data.data.length != 0) {
           setShowOtpField(true);
           try {
             let response: any = await axios.post('http://localhost:3000/api/auth/emailLogin', { email })
@@ -50,11 +50,12 @@ const EmailLogin = () => {
           alert('user not register')
           setLoading(false)
         }
-      } else {
-        alert('Please enter your email');
-        setLoading(false)
-      }
-    }
+      } 
+    //   else {
+    //     alert('Please enter your email');
+    //     setLoading(false)
+    //   }
+    // }
   };
 
   // type size = any

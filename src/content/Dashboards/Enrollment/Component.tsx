@@ -71,7 +71,8 @@ export const Upload = ({
   displayHeight = '50px',
   displayWidth = '100%',
   onFilesUpload,
-  id 
+  id ,
+  name
 }) => {
   const [imageUrls, setImageUrls] = useState([]);
 
